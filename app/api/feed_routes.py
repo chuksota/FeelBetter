@@ -26,8 +26,16 @@ def addFeed():
   data = request.json
   feed = Feed (
   name = data['name'],
-  user_id = data["user_id"]
+  user_id = int(data["user_id"])
   )
   db.session.add(feed)
   db.session.commit()
   return feed.to_dict()
+
+@feed_routes.route('/<int:id>', methods=['DELETE'])
+def deleteFeed(id):
+  print("------------------------",id)
+  feed = Feed.query.get(id)
+  db.session.delete(feed)
+  db.session.commit()
+  return {}

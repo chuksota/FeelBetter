@@ -1,27 +1,64 @@
-import React, { useEffect } from "react"
-import {load} from '../store/feeds'
+import React, { useEffect, useState } from "react"
+import {load, add} from '../store/feeds'
 import {useDispatch, useSelector} from "react-redux"
 
 const Profile = () => {
   const dispatch = useDispatch()
+  const [name, setName] = useState('')
+  console.log(name)
 
-  const getFeeds = async () => {
-    console.log("I'm in the get feeds function")
-    await dispatch(load(user.id))
-  }
   const user = useSelector(state => state.session.user)
   const feeds = useSelector(state => state.feeds)
-  console.log(user.id)
+
   // console.log(feeds)
-  const addFeed = async () => {
-  }
+
+ useEffect(()=> {
+   dispatch(load(user.id))
+ }, [dispatch])
+
+ const onSubmit = (e) => {
+   e.preventDefault()
+  dispatch(add(name, user.id))
+  setName('')
+ }
   return(
     <>
     <h1>
       Left View Area/Working Menu
-      <button onClick={getFeeds}>Test dispatch</button>
-      <button onClick={addFeed}>Add feed</button>
+      <button>Test dispatch</button>
+      <button>Add feed</button>
+      <ul>
+      <li>{feeds[1]?.name}</li>
+        <ul>
+          {feeds[1]?.sources.map((source)=>(
+            <li>{source?.name}</li>
+            ))}
+        </ul>
+        <li>{feeds[2]?.name}</li>
+        <ul>
+          {feeds[2]?.sources.map((source)=>(
+            <li>{source?.name}</li>
+          ))}
+        </ul>
+        <li>{feeds[3]?.name}</li>
+        <ul>
+          {feeds[3]?.sources.map((source)=>(
+            <li>{source?.name}</li>
+          ))}
+        </ul>
+        <li>{feeds[4]?.name}</li>
+        <ul>
+          {feeds[4]?.sources.map((source)=>(
+            <li>{source?.name}</li>
+          ))}
+        </ul>
+      </ul>
       <form>
+        <label>name</label>
+        <input
+        value ={name}
+        onChange={e=>setName(e.target.value)}></input>
+        <button onClick={onSubmit}>submit</button>
       </form>
     </h1>
       <h2>
@@ -32,3 +69,28 @@ const Profile = () => {
 }
 
 export default Profile
+
+{/* <li>{feeds[1]?.name}</li>
+        <ul>
+          {feeds[1]?.sources.map((source)=>(
+            <li>{source?.name}</li>
+          ))}
+        </ul>
+        <li>{feeds[2]?.name}</li>
+        <ul>
+          {feeds[2]?.sources.map((source)=>(
+            <li>{source?.name}</li>
+          ))}
+        </ul>
+        <li>{feeds[3]?.name}</li>
+        <ul>
+          {feeds[3]?.sources.map((source)=>(
+            <li>{source?.name}</li>
+          ))}
+        </ul>
+        <li>{feeds[4]?.name}</li>
+        <ul>
+          {feeds[4]?.sources.map((source)=>(
+            <li>{source?.name}</li>
+          ))}
+        </ul> */}
