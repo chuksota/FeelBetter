@@ -27,6 +27,11 @@ const NavBar = () => {
           </NavLink>
         </li>
         <li>
+          <NavLink to ='/profile' exact={true}>
+            Profile
+          </NavLink>
+        </li>
+        <li>
           <LogoutButton />
         </li>
       </ul>

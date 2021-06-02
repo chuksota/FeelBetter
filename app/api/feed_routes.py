@@ -3,24 +3,22 @@ from app.models import Feed, Source, db
 from flask import request
 feed_routes = Blueprint('feed', __name__)
 
-@feed_routes.route('/')
+@feed_routes.route('/userFeeds', methods=["GET", "POST"])
 def getFeeds():
   data = request.json
-  source_id = data["source_id"]
+  # source_id = data["source_id"]
   user_id = data["user_id"]
-  sources = Source.query.get(int(source_id))
-  print(sources.to_dict())
-  print('==============', user_id)
+  # sources = Source.query.get(int(source_id))
+  # print(sources.to_dict())
   # source_id = data['source_id']
-  # source = Source.query.get(int(source_id))
-  feeds = Feed.query.join(Feed.sources).filter(
+  feeds = Feed.query.filter_by(user_id=user_id).all()
 
-  )
   # Movie.query.join(Movie.genres).filter(
   #       Genre.type == genre.type)
   # feeds = Feed.query.filter_by(user_id=user_id).all()
-  print("===================", feeds)
+  print("===================", feeds[0].to_dict())
   return {"feeds": [feed.to_dict() for feed in feeds]}
+  # return jsonify(feeds)
 
 
 @feed_routes.route('', methods=["POST"])
