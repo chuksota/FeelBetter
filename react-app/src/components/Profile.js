@@ -1,7 +1,7 @@
 import React from "react"
 
 
-export default Profile = () => {
+const Profile = () => {
   return(
     <>
     <h1>
@@ -13,3 +13,5 @@ export default Profile = () => {
     </>
   )
 }
+
+export default Profile

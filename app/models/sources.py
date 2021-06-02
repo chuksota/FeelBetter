@@ -8,10 +8,14 @@ class Source(db.Model):
   name = db.Column(db.String(20))
   icon_url = db.Column(db.String)
 
+  feeds = db.relationship("Feed", back_populates="sources")
+  articles = db.relationship("Article", back_populates="sources")
 
   def to_dict(self):
     return {
       "id": self.id,
       "name": self.name,
-      "icon_url": self.icon_url
+      "icon_url": self.icon_url,
+      "feeds": self.feeds,
+      "articles": self.articles
     }

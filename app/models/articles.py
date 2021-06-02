@@ -1,6 +1,6 @@
 from .db import db
 
-class Articles(db.Model):
+class Article(db.Model):
   __tablename__ = "articles"
 
   id = db.Column(db.Integer, primary_key=True)
@@ -11,8 +11,8 @@ class Articles(db.Model):
   website_link = db.Column(db.String)
   date_posted = db.Column(db.Date)
 
+  sources = db.relationship("Source", back_populates="articles")
 
-  
   def to_dict(self):
     return{
       "id": self.id,
@@ -21,5 +21,6 @@ class Articles(db.Model):
       "description": self.description,
       "sources_id": self.sources_id,
       "website_link": self.website_link,
-      "date_posted": self.date_posted
+      "date_posted": self.date_posted,
+      "sources":self.sources
     }
