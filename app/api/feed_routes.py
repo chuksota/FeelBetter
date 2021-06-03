@@ -5,8 +5,8 @@ from flask_login import current_user
 
 feed_routes = Blueprint('feed', __name__)
 
-@feed_routes.route('/userFeeds', methods=["GET"])
-def getFeeds():
+# @feed_routes.route('/userFeeds', methods=["GET"])
+# def getFeeds():
   # data = request.json
   # source_id = data["source_id"]
   # sources = Source.query.get(int(source_id))
@@ -36,8 +36,8 @@ def addFeed():
 
 @feed_routes.route('/<int:id>', methods=['DELETE'])
 def deleteFeed(id):
-  print("------------------------",id)
   feed = Feed.query.get(id)
+  print("-------------------", feed)
   db.session.delete(feed)
   db.session.commit()
   return {}

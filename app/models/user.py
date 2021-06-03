@@ -31,5 +31,5 @@ class User(db.Model, UserMixin):
       "id": self.id,
       "username": self.username,
       "email": self.email,
-      "feeds": [feed.to_dict() for feed in feeds]
+      "feeds": [feed.to_dict() for feed in self.feeds]
     }

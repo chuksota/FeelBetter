@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import {load, add} from '../store/feeds'
+import {deleteOne, add} from '../store/feeds'
 import {useDispatch, useSelector} from "react-redux"
 
 const Profile = () => {
@@ -8,7 +8,7 @@ const Profile = () => {
   // console.log(name)
 
   const user = useSelector(state => state.session.user)
-   console.log(user.feeds)
+  //  console.log(user.feeds)
   // const feeds = useSelector(state => Object.values(state.feeds))
 
   // console.log(feeds)
@@ -22,15 +22,20 @@ const Profile = () => {
   dispatch(add(name, user.id))
   setName('')
  }
+
+
+
   return(
     <>
     <h1>
       Left View Area/Working Menu
-      <button>Test dispatch</button>
       <button>Add feed</button>
-      <ul>
+      {user.feeds?.map((feed)=>(
+        <div key={feed.id}>{feed.name}
+        <button>Delete Feed</button>
+        </div>
 
-      </ul>
+      ))}
       <form>
         <label>name</label>
         <input
@@ -47,7 +52,11 @@ const Profile = () => {
 }
 
 export default Profile
+{/* <button onClick={handleDelete(feed.id)}>Delete</button> */}
 
+// const handleDelete = (id) => {
+//   dispatch(deleteOne(id))
+// }
 
 {/* <li>{feeds[1]?.name}</li>
         <ul>
