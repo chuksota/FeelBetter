@@ -15,6 +15,7 @@ const addFeed = (feed) => ({
 const deleteFeed = () => ({
   type: DELETE_FEED
 })
+
 // export const load = () => async (dispatch) => {
 //   const response = await fetch("/api/feed/userFeeds", {
 //     method: "POST",
@@ -56,12 +57,12 @@ const initialState = {};
 export default function feeds(state=initialState, action) {
   switch (action.type) {
 
-      case LOAD_FEEDS:
-          let newState = {...state}
-          action.feeds.forEach((feed)=>{
-            newState[feed.id] = feed
-          })
-          return newState
+      // case LOAD_FEEDS:
+      //     let newState = {...state}
+      //     action.feeds.forEach((feed)=>{
+      //       newState[feed.id] = feed
+      //     })
+      //     return newState
       case ADD_FEED:
         return {
           ...state,
