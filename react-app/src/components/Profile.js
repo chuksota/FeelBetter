@@ -8,7 +8,7 @@ const Profile = () => {
   console.log(name)
 
   const user = useSelector(state => state.session.user)
-  const feeds = useSelector(state => state.feeds)
+  const feeds = useSelector(state => Object.values(state.feeds))
 
   // console.log(feeds)
 

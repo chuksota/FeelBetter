@@ -22,5 +22,4 @@ class Article(db.Model):
       "sources_id": self.sources_id,
       "website_link": self.website_link,
       "date_posted": self.date_posted,
-      "sources":self.sources
     }

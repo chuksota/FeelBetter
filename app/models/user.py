@@ -11,7 +11,7 @@ class User(db.Model, UserMixin):
   hashed_password = db.Column(db.String(255), nullable = False)
 
   feeds = db.relationship("Feed", back_populates="user")
-  
+
   @property
   def password(self):
     return self.hashed_password
@@ -30,5 +30,6 @@ class User(db.Model, UserMixin):
     return {
       "id": self.id,
       "username": self.username,
-      "email": self.email
+      "email": self.email,
+      "feeds": [feed.to_dict() for feed in feeds]
     }

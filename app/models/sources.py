@@ -25,4 +25,5 @@ class Source(db.Model):
       "id": self.id,
       "name": self.name,
       "icon_url": self.icon_url,
+      "articles": [article.to_dict() for article in articles]
     }

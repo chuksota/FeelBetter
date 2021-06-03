@@ -1,17 +1,19 @@
 from flask import Blueprint, jsonify
-from app.models import Feed, Source, db
+from app.models import Feed, Source, db, User
 from flask import request
+from flask_login import current_user
+
 feed_routes = Blueprint('feed', __name__)
 
-@feed_routes.route('/userFeeds', methods=["GET", "POST"])
+@feed_routes.route('/userFeeds', methods=["GET"])
 def getFeeds():
   data = request.json
   # source_id = data["source_id"]
-  user_id = data["user_id"]
   # sources = Source.query.get(int(source_id))
   # print(sources.to_dict())
   # source_id = data['source_id']
-  feeds = Feed.query.filter_by(user_id=user_id).all()
+  
+  feeds = Feed.query.filter_by(user_id=current_user.id).all()
 
   # Movie.query.join(Movie.genres).filter(
   #       Genre.type == genre.type)

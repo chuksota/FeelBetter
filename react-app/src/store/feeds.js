@@ -10,7 +10,7 @@ const addFeed = (feed) => ({
   type: ADD_FEED,
   feed
 })
-export const load = (user_id) => async (dispatch) => {
+export const load = () => async (dispatch) => {
   console.log(user_id)
   const response = await fetch("/api/feed/userFeeds", {
     method: "POST",
@@ -35,11 +35,11 @@ export const add = (name, user_id) => async (dispatch) => {
     },
     body: JSON.stringify({name, user_id})
   })
-  const data = await response.json()
-  if (data.errors){
+  const {feeds} = await response.json()
+  if (feeds.errors){
     return;
   }
-  dispatch(addFeed(data))
+  dispatch(addFeed(feeds))
 }
 const initialState = {};
 
@@ -48,7 +48,7 @@ export default function feeds(state=initialState, action) {
 
       case LOAD_FEEDS:
           let newState = {...state}
-          action.feeds.feeds.forEach((feed)=>{
+          action.feeds.forEach((feed)=>{
             newState[feed.id] = feed
           })
           return newState
