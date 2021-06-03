@@ -14,6 +14,10 @@ const useStyles = makeStyles((theme) => ({
   textDecoration: 'none',
   color: "#32E875",
   border: "#32E875"
+ },
+ logo: {
+  color: "#32E875",
+  fontFamily: "Trebuchet"
  }
 }))
 const NavBar = () => {
@@ -21,10 +25,10 @@ const NavBar = () => {
   const user = useSelector(state=> state.session.user)
   return (
     <nav className="nav__bar">
-          <Button size="small" className={classes.link} href='/'>
-            Home
+          <Button size="Large" className={classes.logo} href='/'>
+            Feel Better
           </Button>
-          <div className='nav__element--login'>
+          {user? null :<div className='nav__element--login'>
           <Button outlined="#32E875" size="small" className={classes.link} href="/sign-up">
             Sign Up
           </Button>
@@ -32,6 +36,7 @@ const NavBar = () => {
             Login
           </Button>
           </div>
+}
           {user? <LogoutButton /> : ''}
     </nav>
   );
