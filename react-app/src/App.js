@@ -9,7 +9,7 @@ import UsersList from "./components/UsersList";
 import User from "./components/User";
 import Profile from "./components/Profile"
 import { authenticate } from "./store/session";
-
+import LandingPage from './components/landingpage/LandingPage'
 function App() {
   const user = useSelector(state => state.session.user)
   const [loaded, setLoaded] = useState(false);
@@ -26,13 +26,13 @@ function App() {
     return null;
   }
 
-  
+
   return (
     <BrowserRouter>
       <NavBar />
       <Switch>
         <Route path="/" exact={true} >
-          <h1>My Home Page</h1>
+          <LandingPage/>
         </Route>
         <Route path="/login" exact={true}>
           <LoginForm />

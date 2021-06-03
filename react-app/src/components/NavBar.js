@@ -1,40 +1,38 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
+import {Button} from '@material-ui/core'
+import { makeStyles } from "@material-ui/core/styles";
+import {useSelector} from 'react-redux'
+const useStyles = makeStyles((theme) => ({
 
+  link: {
+  textDecoration: 'none',
+  color: "#DBD3D8"
+ },
+ login: {
+  textDecoration: 'none',
+  color: "#32E875",
+  border: "#32E875"
+ }
+}))
 const NavBar = () => {
+  const classes = useStyles()
+  const user = useSelector(state=> state.session.user)
   return (
-    <nav>
-      <ul>
-        <li>
-          <NavLink to="/" exact={true} activeClassName="active">
+    <nav className="nav__bar">
+          <Button size="small" className={classes.link} href='/'>
             Home
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/login" exact={true} activeClassName="active">
-            Login
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/sign-up" exact={true} activeClassName="active">
+          </Button>
+          <div className='nav__element--login'>
+          <Button outlined="#32E875" size="small" className={classes.link} href="/sign-up">
             Sign Up
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/users" exact={true} activeClassName="active">
-            Users
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to ='/profile' exact={true}>
-            Profile
-          </NavLink>
-        </li>
-        <li>
-          <LogoutButton />
-        </li>
-      </ul>
+          </Button>
+          <Button variant="outlined"  color="primary" size="small"  className={classes.login} href="/login">
+            Login
+          </Button>
+          </div>
+          {user? <LogoutButton /> : ''}
     </nav>
   );
 }

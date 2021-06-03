@@ -1,0 +1,65 @@
+ /* .hero_wrapper{
+  width: 100%;
+  box-sizing: border-box;
+  height: 2em;
+  display: flex;
+  justify-content: center;
+}
+
+.hero__section{
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid pink;
+  height: 50%;
+  color: white;
+} */
+
+.landing__page{
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.landing__hero{
+  width: 100%;
+}
+
+.landing__hero--container{
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.row{
+  font-family: sans-serif;
+}
+
+.landing{
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+}
+.heading{
+color: white;
+font-family: sans-serif;
+font-size: 40px;
+}
+.subheading{
+  color:rgba(128, 128, 128, 0.555);
+  font-size: 20px;
+  font-family: sans-serif;
+}
+
+.image_container{
+  margin-top: 2.5em;
+  height: 620px;
+  width: 50em;
+  background: url("https://commonwealthprojectpictures.s3.ca-central-1.amazonaws.com/Splash+page+picture.PNG");
+  background-size: 100% 620px;
+  object-fit: contain;
+  background-repeat: no-repeat;
+}
+
+
