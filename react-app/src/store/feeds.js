@@ -10,30 +10,29 @@ const addFeed = (feed) => ({
   type: ADD_FEED,
   feed
 })
-export const load = () => async (dispatch) => {
-  console.log(user_id)
-  const response = await fetch("/api/feed/userFeeds", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      user_id
-    }),
-  });
-  const data = await response.json()
-  if (data.errors){
-    return;
-  }
-  dispatch(loadFeeds(data))
-}
-export const add = (name, user_id) => async (dispatch) => {
+
+// export const load = () => async (dispatch) => {
+//   const response = await fetch("/api/feed/userFeeds", {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+
+//   });
+//   const data = await response.json()
+//   if (data.errors){
+//     return;
+//   }
+//   dispatch(loadFeeds(data))
+// }
+
+export const add = (name, ) => async (dispatch) => {
   const response = await fetch("/api/feed", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({name, user_id})
+    body: JSON.stringify({name})
   })
   const {feeds} = await response.json()
   if (feeds.errors){
