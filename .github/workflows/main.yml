@@ -20,3 +20,11 @@ jobs:
       env:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
       run: heroku container:release -a feelbetter-app web 
+    - name: Upgrade
+      env:
+        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+      run: heroku run -a feelbetter-app flask db upgrade 
+    - name: Seed
+      env:
+        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+      run: heroku run -a feelbetter-app flask seed all
