@@ -25,7 +25,7 @@ const NavBar = () => {
   const user = useSelector(state=> state.session.user)
   return (
     <nav className="nav__bar">
-          <Button size="Large" className={classes.logo} href='/'>
+          <Button size="large" className={classes.logo} href='/'>
             Feel Better
           </Button>
           {user? null :<div className='nav__element--login'>
