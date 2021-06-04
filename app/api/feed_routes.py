@@ -42,6 +42,6 @@ def deleteFeed(id):
   for source in selectedFeed['sources']:
     feed.sources.remove(Source.query.get(source['id']))
 
-  # db.session.delete(feed)
-  # db.session.commit()
+  db.session.delete(feed)
+  db.session.commit()
   return {}
