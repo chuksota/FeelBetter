@@ -22,7 +22,9 @@ const Profile = () => {
   dispatch(add(name, user.id))
   setName('')
  }
-
+ const handleDelete = (id) => {
+  dispatch(deleteOne(id))
+}
 
 
   return(
@@ -32,7 +34,7 @@ const Profile = () => {
       <button>Add feed</button>
       {user.feeds?.map((feed)=>(
         <div key={feed.id}>{feed.name}
-        <button>Delete Feed</button>
+        <button  onClick={handleDelete(feed.id)}>Delete Feed</button>
         </div>
 
       ))}
@@ -52,7 +54,7 @@ const Profile = () => {
 }
 
 export default Profile
-{/* <button onClick={handleDelete(feed.id)}>Delete</button> */}
+// { <button onClick={handleDelete(feed.id)}>Delete</button> }
 
 // const handleDelete = (id) => {
 //   dispatch(deleteOne(id))

@@ -37,7 +37,11 @@ def addFeed():
 @feed_routes.route('/<int:id>', methods=['DELETE'])
 def deleteFeed(id):
   feed = Feed.query.get(id)
-  print("-------------------", feed)
-  db.session.delete(feed)
-  db.session.commit()
+  selectedFeed = feed.to_dict()
+  print('---------------', selectedFeed['sources'])
+  for source in selectedFeed['sources']:
+    feed.sources.remove(Source.query.get(source['id']))
+
+  # db.session.delete(feed)
+  # db.session.commit()
   return {}
