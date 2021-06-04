@@ -12,24 +12,25 @@ const addFeed = (feed) => ({
   feed
 })
 
-const deleteFeed = () => ({
-  type: DELETE_FEED
+const deleteFeed = (feed) => ({
+  type: DELETE_FEED,
+  feed
 })
 
-// export const load = () => async (dispatch) => {
-//   const response = await fetch("/api/feed/userFeeds", {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
+export const load = () => async (dispatch) => {
+  const response = await fetch("/api/feed/userFeeds", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
 
-//   });
-//   const data = await response.json()
-//   if (data.errors){
-//     return;
-//   }
-//   dispatch(loadFeeds(data))
-// }
+  });
+  const data = await response.json()
+  if (data.errors){
+    return;
+  }
+  dispatch(loadFeeds(data))
+}
 
 export const add = (name) => async (dispatch) => {
   const response = await fetch("/api/feed", {
@@ -40,7 +41,7 @@ export const add = (name) => async (dispatch) => {
     body: JSON.stringify({name})
   })
   const data = await response.json()
-  console.log(data)
+
   dispatch(addFeed(data))
 }
 
@@ -50,7 +51,9 @@ export const deleteOne = (id) => async (dispatch) => {
   headers: {
     "Content-Type": "application/json",
   }
-  })
+  }),
+  feed = response.json()
+  dispatch(deleteFeed(feed))
 }
 const initialState = {};
 
@@ -68,6 +71,10 @@ export default function feeds(state=initialState, action) {
           ...state,
           [action.feed.id]: action.feed
         }
+      case DELETE_FEED:
+        let newState = {...state}
+        delete newState[action.feed.id]
+        return newState
       default:
           return state;
   }

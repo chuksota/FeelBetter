@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react"
 import {deleteOne, add} from '../store/feeds'
 import {useDispatch, useSelector} from "react-redux"
+import ProfileDrawer from '../components/profileDrawer/ProfileDrawer'
+import ListItemText from '@material-ui/core/ListItemText';
+import ListItem from '@material-ui/core/ListItem';
 
 const Profile = () => {
   const dispatch = useDispatch()
   const [name, setName] = useState('')
-  // console.log(name)
+
 
   const user = useSelector(state => state.session.user)
-  //  console.log(user.feeds)
-  // const feeds = useSelector(state => Object.values(state.feeds))
-
-  // console.log(feeds)
+  const feeds = useSelector(state=> state.session.user.feeds)
 
 //  useEffect(()=> {
 //    dispatch(load(user.id))
@@ -19,7 +19,7 @@ const Profile = () => {
 
  const onSubmit = (e) => {
    e.preventDefault()
-  dispatch(add(name, user.id))
+  dispatch(add(name))
   setName('')
  }
  const handleDelete = (id) => {
@@ -27,17 +27,19 @@ const Profile = () => {
 }
 
 
+
   return(
     <>
     <h1>
       Left View Area/Working Menu
       <button>Add feed</button>
-      {user.feeds?.map((feed)=>(
+      {feeds.map((feed)=>(
         <div key={feed.id}>{feed.name}
-        <button  onClick={handleDelete(feed.id)}>Delete Feed</button>
+        <button onClick={() => handleDelete(feed.id)}>Delete Feed</button>
         </div>
-
       ))}
+      <ProfileDrawer userFeeds={feeds}/>
+
       <form>
         <label>name</label>
         <input

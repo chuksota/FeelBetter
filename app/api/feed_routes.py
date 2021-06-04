@@ -38,10 +38,9 @@ def addFeed():
 def deleteFeed(id):
   feed = Feed.query.get(id)
   selectedFeed = feed.to_dict()
-  print('---------------', selectedFeed['sources'])
   for source in selectedFeed['sources']:
     feed.sources.remove(Source.query.get(source['id']))
 
   db.session.delete(feed)
   db.session.commit()
-  return {}
+  return selectedFeed
