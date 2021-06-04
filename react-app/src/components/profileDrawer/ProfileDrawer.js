@@ -11,6 +11,7 @@ import {useSelector} from "react-redux"
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import Collapse from '@material-ui/core/Collapse';
+import CreateFeedFormModal from '../forms/index'
 const drawerWidth = 400;
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -76,7 +77,7 @@ const ProfileDrawer = ({userFeeds}) => {
           )}
         </List>
       </Collapse>
-
+      <CreateFeedFormModal/>
       </Drawer>
   )
 }
