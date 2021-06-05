@@ -25,7 +25,7 @@ const NavBar = () => {
   return (
     <nav className="nav__bar">
           <Button size="large" className={classes.logo} href='/'>
-            <div className="logo" ></div>
+            <div className="logo"></div>
           </Button>
           {user? null :<div className='nav__element--login'>
           <Button outlined="#32E875" size="small" className={classes.link} href="/sign-up">
