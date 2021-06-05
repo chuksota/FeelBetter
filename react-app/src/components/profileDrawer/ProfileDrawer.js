@@ -24,10 +24,11 @@ const useStyles = makeStyles((theme) => ({
   drawer: {
     width: drawerWidth,
     flexShrink: 0,
-    backgroundColor: "black"
+
   },
   drawerPaper: {
     width: drawerWidth,
+    background: "#DBD3D8"
   },
   // necessary for content to be below app bar
   toolbar: theme.mixins.toolbar,
