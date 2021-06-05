@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import {add} from '../../store/feeds'
+import {add} from '../../store/session'
 import {Button, TextField} from "@material-ui/core"
-
-function CreateFeedForm() {
+import "./CreateForm.css"
+function CreateFeedForm({feedId, setFeedId }) {
   const dispatch = useDispatch();
   const [name, setName] = useState('')
 
   const onSubmit = (e) => {
     e.preventDefault()
-   dispatch(add(name))
+   dispatch(add(name)).then(()=> setFeedId(!feedId))
    setName('')
   }
 
   return (
-    <form>
+    <form className="create__form">
     <TextField
     value={name}
     onChange={e=>setName(e.target.value)}

@@ -185,3 +185,10 @@ body{
   display: flex;
   margin-right: 20px;
 }
+
+.logo {
+  background-image: url('https://commonwealthprojectpictures.s3.ca-central-1.amazonaws.com/logo_transparent.png');
+  height: 200px;
+  width:200px;
+  background-size: contain;
+}

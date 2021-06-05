@@ -4,7 +4,7 @@ import session from "./session"
 import feeds from "./feeds"
 const rootReducer = combineReducers({
     session,
-    feeds
+    // feeds
 });
 
 

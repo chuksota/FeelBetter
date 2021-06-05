@@ -6,12 +6,15 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import React, { useEffect, useState } from "react"
+import LogoutButton from "../auth/LogoutButton"
 import { makeStyles } from '@material-ui/core/styles';
-import {useSelector} from "react-redux"
+import { useSelector } from "react-redux"
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import Collapse from '@material-ui/core/Collapse';
 import CreateFeedFormModal from '../forms/index'
+import { DeleteIcon } from '@material-ui/icons/Delete'
+
 const drawerWidth = 400;
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -41,44 +44,49 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const ProfileDrawer = ({userFeeds}) => {
-  console.log(userFeeds)
+const ProfileDrawer = ({ feeder: feeds }) => {
+  console.log(feeds)
   const classes = useStyles()
-  const feeds = useSelector(state=>state.session.user.feeds)
+  // const feeds = useSelector(state=>state.session.user.feeds)
   const [open, setOpen] = React.useState(true);
-
+  const [feedId, setFeedId] = useState(null)
   const handleClick = () => {
     setOpen(!open);
   };
 
-  return(
-     <Drawer
-        className={classes.drawer}
-        variant="permanent"
-        classes={{
-          paper: classes.drawerPaper,
-        }}
-        anchor="left"
-      >
+  return (
+    <Drawer
+      className={classes.drawer}
+      variant="permanent"
+      classes={{
+        paper: classes.drawerPaper,
+      }}
+      anchor="left"
+    >
 
 
-    {userFeeds.map((feed)=>(
-    <ListItem button onClick={handleClick}>
-        <ListItemText primary={feed.name} />
-        {open ? <ExpandLess /> : <ExpandMore />}
-      </ListItem>
+      {feeds.map((feed) => (
+        <ListItem button onClick={handleClick}>
+          {/* <ListItemIcon>
+            <DeleteIcon />
+          </ListItemIcon> */}
+          <ListItemText primary={feed.name} />
+          {open ? <ExpandLess /> : <ExpandMore />}
+        </ListItem>
       ))}
       <Collapse in={open} timeout="auto" unmountOnExit>
-        <List  component="div" disablePadding>
-         {userFeeds.sources?.map(source=>
-         <ListItem  button>
-            <ListItemText  primary={source.name} />
-          </ListItem>
+        <List component="div" disablePadding>
+          {feeds.sources?.map(source =>
+            <ListItem button>
+              <ListItemText primary={source.name} />
+            </ListItem>
           )}
         </List>
       </Collapse>
-      <CreateFeedFormModal/>
-      </Drawer>
+      <CreateFeedFormModal feedId={feedId} setFeedId={setFeedId}/>
+      <Divider />
+      <LogoutButton />
+    </Drawer>
   )
 }
 

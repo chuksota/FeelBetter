@@ -3,7 +3,7 @@ import { Modal } from '../../context/Modal';
 import CreateFeedForm from './CreateFeedForm';
 import {Button} from "@material-ui/core"
 
-function CreateFeedFormModal() {
+function CreateFeedFormModal(props) {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -11,7 +11,7 @@ function CreateFeedFormModal() {
       <Button  size="small" onClick={() => setShowModal(true)}>Add a feed</Button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <CreateFeedForm/>
+          <CreateFeedForm feedId={props.feedId} setFeedId={props.setFeedId}/>
         </Modal>
       )}
     </>

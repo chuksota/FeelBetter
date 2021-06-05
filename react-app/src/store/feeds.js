@@ -2,10 +2,10 @@ const LOAD_FEEDS = 'feeds/LOAD_FEEDS'
 const ADD_FEED = 'feeds/ADD_FEED'
 const DELETE_FEED = 'feeds/DELETE_FEED'
 
-const loadFeeds = (feeds) => ({
-  type: LOAD_FEEDS,
-  feeds
-})
+// const loadFeeds = (feeds) => ({
+//   type: LOAD_FEEDS,
+//   feeds
+// })
 
 const addFeed = (feed) => ({
   type: ADD_FEED,
@@ -17,20 +17,20 @@ const deleteFeed = (feed) => ({
   feed
 })
 
-export const load = () => async (dispatch) => {
-  const response = await fetch("/api/feed/userFeeds", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
+// export const load = () => async (dispatch) => {
+//   const response = await fetch("/api/feed/userFeeds", {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
 
-  });
-  const data = await response.json()
-  if (data.errors){
-    return;
-  }
-  dispatch(loadFeeds(data))
-}
+//   });
+//   const data = await response.json()
+//   if (data.errors){
+//     return;
+//   }
+//   dispatch(loadFeeds(data))
+// }
 
 export const add = (name) => async (dispatch) => {
   const response = await fetch("/api/feed", {
