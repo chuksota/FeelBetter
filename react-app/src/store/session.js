@@ -36,6 +36,7 @@ export const deleteOne = (id) => async (dispatch) => {
   }
   }),
   feed = response.json()
+  
   dispatch(deleteFeed(feed))
 }
 

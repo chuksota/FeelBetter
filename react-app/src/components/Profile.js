@@ -10,9 +10,7 @@ const Profile = () => {
   const user = useSelector(state => state.session.user)
   const feeds = useSelector(state=> state.session.user.feeds)
 
-useEffect(()=>{
 
-}, [dispatch, feeds])
 
 
 
