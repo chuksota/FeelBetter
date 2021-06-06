@@ -37,7 +37,7 @@ const FeedComp = ({feeds}) => {
   return(
     <>
     <List>
-        <ListItem key={feeds?.id} button onClick={handleClick}>
+        <ListItem key={feeds.id} button onClick={handleClick}>
           <IconButton aria-label='edit' className={classes.margin} >
             <EditIcon fontSize="small"/>
           </IconButton>
@@ -50,7 +50,7 @@ const FeedComp = ({feeds}) => {
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           {feeds?.sources?.map(source =>
-            <ListItem button>
+            <ListItem key={source.id} button>
               <ListItemText primary={source?.name} />
             </ListItem>
           )}

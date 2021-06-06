@@ -192,3 +192,10 @@ body{
   width: 200px;
   background-size: contain;
 }
+
+.header_one{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  color: white;
+}

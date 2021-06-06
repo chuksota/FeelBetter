@@ -8,6 +8,7 @@ import FeedComp from './Feeds'
 const Profile = () => {
   const dispatch = useDispatch()
   const user = useSelector(state => state.session.user)
+  console.log(user)
   const feeds = useSelector(state=> state.session.user.feeds)
 
 
@@ -18,12 +19,10 @@ const Profile = () => {
 
   return(
     <>
-    <h1>
         <ProfileDrawer feeder={feeds}/>
-    </h1>
-      <h2>
-        Middle View Area/Where all the magic happens
-      </h2>
+      <h1 className="header_one">
+        {`Welcome back ${user?.username}!`}
+      </h1>
     </>
   )
 }
