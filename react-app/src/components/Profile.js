@@ -8,15 +8,7 @@ import FeedComp from './Feeds'
 const Profile = () => {
   const dispatch = useDispatch()
   const user = useSelector(state => state.session.user)
-  console.log(user)
   const feeds = useSelector(state=> state.session.user.feeds)
-
-
-
-
-
-
-
   return(
     <>
         <ProfileDrawer feeder={feeds}/>

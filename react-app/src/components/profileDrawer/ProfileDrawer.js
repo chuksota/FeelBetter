@@ -39,11 +39,14 @@ const useStyles = makeStyles((theme) => ({
   },
   fonts: {
     fontFamily: "sans-serif"
+  },
+  margin:{
+    marginLeft: "1em",
+    fontFamily: "sans-serif"
   }
 }));
 
 const ProfileDrawer = ({ feeder: feeds }) => {
-  console.log(feeds)
   const classes = useStyles()
   // const feeds = useSelector(state=>state.session.user.feeds)
 
@@ -59,6 +62,8 @@ const ProfileDrawer = ({ feeder: feeds }) => {
       }}
       anchor="left"
     >
+      <h2 className={classes.margin}>Your Feeds</h2>
+      <Divider/>
         {feeds.map((feed) => (
           <FeedComp key={feed.id} feeds={feed}/>
         ))}

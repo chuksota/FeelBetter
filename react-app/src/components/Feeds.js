@@ -11,6 +11,7 @@ import {deleteOne, add} from '../store/session'
 import EditIcon from '@material-ui/icons/Edit';
 import { makeStyles } from '@material-ui/core/styles';
 import {useDispatch} from 'react-redux'
+import { NavLink } from 'react-router-dom';
 const useStyles = makeStyles((theme) => ({
   margin: {
     margin: theme.spacing(1),
@@ -18,9 +19,12 @@ const useStyles = makeStyles((theme) => ({
   extendedIcon: {
     marginRight: theme.spacing(1),
   },
+  navLink: {
+    textDecoration: "none",
+    color: "black"
+  }
 }));
 const FeedComp = ({feeds}) => {
-  console.log(feeds)
   const classes = useStyles()
   const dispatch = useDispatch()
   const [open, setOpen] = React.useState(false);
@@ -50,10 +54,12 @@ const FeedComp = ({feeds}) => {
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           {feeds?.sources?.map(source =>
+            <NavLink  key={source.id} className={classes.navLink} to={`/source/${source.id}`}>
             <ListItem key={source.id} button>
               <ListItemText primary={source?.name} />
             </ListItem>
-          )}
+            </NavLink>
+            )}
         </List>
       </Collapse>
       </List>

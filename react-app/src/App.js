@@ -10,6 +10,7 @@ import User from "./components/User";
 import Profile from "./components/Profile"
 import { authenticate } from "./store/session";
 import LandingPage from './components/landingpage/LandingPage'
+import Source from './components/Articles'
 function App() {
   const user = useSelector(state => state.session.user)
   const [loaded, setLoaded] = useState(false);
@@ -42,6 +43,9 @@ function App() {
         </Route>
         <ProtectedRoute path="/profile" exact={true}>
           <Profile />
+        </ProtectedRoute>
+        <ProtectedRoute path='/source/:id' exact={true}>
+          <Source/>
         </ProtectedRoute>
         <ProtectedRoute path="/users" exact={true} >
           <UsersList/>

@@ -199,3 +199,10 @@ body{
   justify-content: center;
   color: white;
 }
+
+.right_view_area{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  color: white;
+}
