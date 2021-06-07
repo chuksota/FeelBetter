@@ -5,8 +5,8 @@ class Source(db.Model):
   __tablename__ = 'sources'
 
   id = db.Column(db.Integer, primary_key=True)
-  name = db.Column(db.String(20))
-  icon_url = db.Column(db.String)
+  name = db.Column(db.String(300))
+
 
   feeds = db.relationship("Feed", secondary=SourceFeed, back_populates="sources")
   articles = db.relationship("Article", back_populates="sources")
@@ -15,7 +15,6 @@ class Source(db.Model):
     return {
       "id": self.id,
       "name": self.name,
-      "icon_url": self.icon_url,
       "feeds": self.feeds,
       "articles": self.articles
     }
@@ -24,6 +23,5 @@ class Source(db.Model):
     return {
       "id": self.id,
       "name": self.name,
-      "icon_url": self.icon_url,
       "articles": [article.to_dict() for article in self.articles]
     }

@@ -13,10 +13,8 @@ import CardActions from '@material-ui/core/CardActions';
 import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -55,7 +53,7 @@ const Source = () => {
 
   return (
   <>
-    // <ProfileDrawer feeder={feeds}/>
+     <ProfileDrawer feeder={feeds}/>
     <div className="right_view_area">
     <Card className={classes.root}>
       <CardHeader

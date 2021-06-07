@@ -13,16 +13,16 @@ def seed_feeds():
     name= "Test Feed2",
     user_id= 1,
   )
-  feed2.sources.append(Source.query.get(1))
-  feed2.sources.append(Source.query.get(2))
-  feed2.sources.append(Source.query.get(3))
+  feed2.sources.append(Source.query.get(4))
+  feed2.sources.append(Source.query.get(5))
+  feed2.sources.append(Source.query.get(6))
   feed3 = Feed(
     name= "Test Feed3",
     user_id= 1,
   )
-  feed3.sources.append(Source.query.get(1))
-  feed3.sources.append(Source.query.get(2))
-  feed3.sources.append(Source.query.get(3))
+  feed3.sources.append(Source.query.get(7))
+  feed3.sources.append(Source.query.get(8))
+  feed3.sources.append(Source.query.get(9))
   db.session.add(feed1)
   db.session.add(feed2)
   db.session.add(feed3)

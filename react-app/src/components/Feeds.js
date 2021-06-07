@@ -12,6 +12,8 @@ import EditIcon from '@material-ui/icons/Edit';
 import { makeStyles } from '@material-ui/core/styles';
 import {useDispatch} from 'react-redux'
 import { NavLink } from 'react-router-dom';
+import StarOutlineIcon from '@material-ui/icons/StarOutline';
+import {ListItemIcon} from '@material-ui/core'
 const useStyles = makeStyles((theme) => ({
   margin: {
     margin: theme.spacing(1),
@@ -56,6 +58,9 @@ const FeedComp = ({feeds}) => {
           {feeds?.sources?.map(source =>
             <NavLink  key={source.id} className={classes.navLink} to={`/source/${source.id}`}>
             <ListItem key={source.id} button>
+              <ListItemIcon>
+              <StarOutlineIcon/>
+              </ListItemIcon>
               <ListItemText primary={source?.name} />
             </ListItem>
             </NavLink>
