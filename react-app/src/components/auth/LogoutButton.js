@@ -6,7 +6,8 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
   link: {
   textDecoration: 'none',
-  color: "#DBD3D8"
+  color: "black",
+  marginTop: "40em"
  },
  login: {
   textDecoration: 'none',
