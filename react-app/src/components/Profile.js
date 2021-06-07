@@ -9,11 +9,13 @@ const Profile = () => {
   const dispatch = useDispatch()
   const user = useSelector(state => state.session.user)
   const feeds = useSelector(state=> state.session.user.feeds)
+  console.log(feeds)
   return(
     <>
         <ProfileDrawer feeder={feeds}/>
       <h1 className="header_one">
-        {`Welcome back ${user?.username}!`}
+        {`Welcome back ${user?.username}, here's what you missed.`}
+        
       </h1>
     </>
   )

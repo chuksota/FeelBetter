@@ -205,4 +205,8 @@ body{
   display: flex;
   justify-content: center;
   color: white;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: 8.5em;
+  margin-right:0;
 }

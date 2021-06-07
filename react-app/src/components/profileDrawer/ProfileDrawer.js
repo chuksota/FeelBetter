@@ -7,11 +7,13 @@ import React, { useEffect, useState } from "react"
 import LogoutButton from "../auth/LogoutButton"
 import { makeStyles } from '@material-ui/core/styles';
 import { useSelector } from "react-redux"
-
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
 import CreateFeedFormModal from '../forms/index'
+import { NavLink } from 'react-router-dom';
 
 
-const drawerWidth = 400;
+const drawerWidth = 350;
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -41,15 +43,18 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "sans-serif"
   },
   margin:{
-    marginLeft: "1em",
-    fontFamily: "sans-serif"
+    textDecoration: 'none',
+    color: 'black'
+  },
+  bottom: {
+    alignSelf:"Flex-end"
   }
 }));
 
 const ProfileDrawer = ({ feeder: feeds }) => {
   const classes = useStyles()
   // const feeds = useSelector(state=>state.session.user.feeds)
-
+console.log(feeds)
   const [feedId, setFeedId] = useState(null)
 
 
@@ -62,14 +67,18 @@ const ProfileDrawer = ({ feeder: feeds }) => {
       }}
       anchor="left"
     >
-      <h2 className={classes.margin}>Your Feeds</h2>
+      <NavLink className={classes.margin} to='/profile'>
+      <ListItem  button>
+      <ListItemText primary="All Feeds"/>
+      </ListItem>
+      </NavLink>
       <Divider/>
         {feeds.map((feed) => (
           <FeedComp key={feed.id} feeds={feed}/>
         ))}
       <CreateFeedFormModal feedId={feedId} setFeedId={setFeedId}/>
       <Divider />
-      <LogoutButton />
+      <LogoutButton className={classes.bottom} />
     </Drawer>
   )
 }
