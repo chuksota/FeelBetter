@@ -14,8 +14,8 @@ const Source = () => {
   const articles = useSelector(state=> state.sources)
   const articlesArr = Object.values(articles)
 
-  useEffect(async ()=>{
-    await dispatch(loadA(id))
+  useEffect(()=>{
+     dispatch(loadA(id))
   },[dispatch, id])
 
 
@@ -23,6 +23,7 @@ const Source = () => {
   return (
   <>
      <ProfileDrawer feeder={feeds}/>
+
     <div className="right_view_area">
       {articlesArr.map((article)=>(
         <ArticleCard key={article.id} article={article}/>

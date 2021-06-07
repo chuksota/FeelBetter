@@ -13,7 +13,7 @@ def seed():
     seed_users()
     seed_sources()
     seed_feeds()
-    seed_articles()
+    # seed_articles()
     # Add other seed functions here
 
 # Creates the `flask seed undo` command
@@ -22,5 +22,5 @@ def undo():
     undo_users()
     undo_sources()
     undo_feeds()
-    undo_articles()
+    # undo_articles()
     # Add other undo functions here

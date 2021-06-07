@@ -15,11 +15,11 @@ export const loadA = (id) => async (dispatch) =>{
 
 const initialState= {}
 export default function sources(state=initialState, action) {
-  let newState = {...state}
+  let newState = {}
   switch (action.type) {
       case LOAD_ARTICLES:
-        action.feed.articles.forEach((article)=>{
-          newState[article.id] = article
+        action.feed.posts.forEach((post)=>{
+          newState[post.title] = post
         })
         return newState
       default:
