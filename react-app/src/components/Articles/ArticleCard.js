@@ -11,6 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import React from 'react'
 import { NavLink } from 'react-router-dom';
 
+
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 350,
@@ -38,14 +39,12 @@ const useStyles = makeStyles((theme) => ({
 
 const ArticleCard = ({article}) => {
   const classes = useStyles();
-
   return(
     <a className={classes.link} href={article.link}>
     <Card className={classes.root}>
       <CardHeader
         title={article.title}
         subheader={article.published}
-        // subheader={`By: ${article.author}`}
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">

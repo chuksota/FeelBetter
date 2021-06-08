@@ -9,7 +9,6 @@ export const loadA = (id) => async (dispatch) =>{
   const response = await fetch(`/api/source/${id}`)
 
   const data = await response.json()
-  console.log(data)
   dispatch(loadArticles(data))
 }
 

@@ -23,7 +23,7 @@ useEffect(()=> {
     <ProfileDrawer feeder={feeds}/>
     <div className='testing'>
     {sourcesArr.map((source)=>(
-     <SourceCard source={source}/>
+     <SourceCard key={source.id} source={source} feeds={feeds}/>
     ))}
     </div>
     </>
