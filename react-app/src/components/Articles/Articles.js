@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {useParams} from 'react-router-dom'
-import ProfileDrawer from './profileDrawer/ProfileDrawer'
-import {loadA} from '../store/source'
+import ProfileDrawer from '../Profile/profileDrawer/ProfileDrawer'
+import {loadA} from '../../store/articles'
 import ArticleCard from './ArticleCard'
 
 
@@ -14,8 +14,8 @@ const Source = () => {
   const articles = useSelector(state=> state.sources)
   const articlesArr = Object.values(articles)
 
-  useEffect(async ()=>{
-    await dispatch(loadA(id))
+  useEffect(()=>{
+     dispatch(loadA(id))
   },[dispatch, id])
 
 
@@ -23,6 +23,7 @@ const Source = () => {
   return (
   <>
      <ProfileDrawer feeder={feeds}/>
+
     <div className="right_view_area">
       {articlesArr.map((article)=>(
         <ArticleCard key={article.id} article={article}/>

@@ -9,17 +9,16 @@ export const loadA = (id) => async (dispatch) =>{
   const response = await fetch(`/api/source/${id}`)
 
   const data = await response.json()
-  console.log(data)
   dispatch(loadArticles(data))
 }
 
 const initialState= {}
-export default function sources(state=initialState, action) {
-  let newState = {...state}
+export default function articles(state=initialState, action) {
+  let newState = {}
   switch (action.type) {
       case LOAD_ARTICLES:
-        action.feed.articles.forEach((article)=>{
-          newState[article.id] = article
+        action.feed.posts.forEach((post)=>{
+          newState[post.title] = post
         })
         return newState
       default:
