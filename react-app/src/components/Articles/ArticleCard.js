@@ -38,6 +38,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const ArticleCard = ({article}) => {
+  console.log(article)
   const classes = useStyles();
   return(
     <a className={classes.link} href={article.link}>
