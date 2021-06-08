@@ -207,3 +207,11 @@ body{
   color: white;
   flex-direction: column;
 }
+
+.testing{
+  color:white;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}

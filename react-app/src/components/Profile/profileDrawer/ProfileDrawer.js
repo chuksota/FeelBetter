@@ -1,18 +1,18 @@
 
 import Divider from '@material-ui/core/Divider';
-
+import { ListItemIcon } from '@material-ui/core';
 import Drawer from '@material-ui/core/Drawer';
 import FeedComp from '../Feeds'
 import React, { useEffect, useState } from "react"
-import LogoutButton from "../auth/LogoutButton"
+import LogoutButton from "../../auth/LogoutButton"
 import { makeStyles } from '@material-ui/core/styles';
 import { useSelector } from "react-redux"
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import CreateFeedFormModal from '../forms/index'
+import CreateFeedFormModal from '../../forms/'
 import { NavLink } from 'react-router-dom';
-
-
+import SearchIcon from '@material-ui/icons/Search';
+import HomeIcon from '@material-ui/icons/Home';
 const drawerWidth = 350;
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -42,19 +42,19 @@ const useStyles = makeStyles((theme) => ({
   fonts: {
     fontFamily: "sans-serif"
   },
-  margin:{
+  margin: {
     textDecoration: 'none',
     color: 'black'
   },
   bottom: {
-    alignSelf:"Flex-end"
+    alignSelf: "Flex-end"
   }
 }));
 
 const ProfileDrawer = ({ feeder: feeds }) => {
   const classes = useStyles()
   // const feeds = useSelector(state=>state.session.user.feeds)
-console.log(feeds)
+  console.log(feeds)
   const [feedId, setFeedId] = useState(null)
 
 
@@ -67,16 +67,27 @@ console.log(feeds)
       }}
       anchor="left"
     >
-      <NavLink className={classes.margin} to='/profile'>
-      <ListItem  button>
-      <ListItemText primary="All Feeds"/>
-      </ListItem>
+      <NavLink className={classes.margin} to='/discover'>
+        <ListItem button>
+          <ListItemIcon>
+            <SearchIcon size='small' />
+          </ListItemIcon>
+          <ListItemText primary="Discover" />
+        </ListItem>
       </NavLink>
-      <Divider/>
-        {feeds.map((feed) => (
-          <FeedComp key={feed.id} feeds={feed}/>
-        ))}
-      <CreateFeedFormModal feedId={feedId} setFeedId={setFeedId}/>
+      <NavLink className={classes.margin} to='/profile'>
+        <ListItem button>
+          <ListItemIcon>
+            <HomeIcon size='small' />
+          </ListItemIcon>
+          <ListItemText primary="All Feeds" />
+        </ListItem>
+      </NavLink>
+      <Divider />
+      {feeds.map((feed) => (
+        <FeedComp key={feed.id} feeds={feed} />
+      ))}
+      <CreateFeedFormModal feedId={feedId} setFeedId={setFeedId} />
       <Divider />
       <LogoutButton className={classes.bottom} />
     </Drawer>

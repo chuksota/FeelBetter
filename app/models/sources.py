@@ -23,5 +23,4 @@ class Source(db.Model):
     return {
       "id": self.id,
       "name": self.name,
-      "articles": [article.to_dict() for article in self.articles]
     }

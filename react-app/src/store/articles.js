@@ -14,7 +14,7 @@ export const loadA = (id) => async (dispatch) =>{
 }
 
 const initialState= {}
-export default function sources(state=initialState, action) {
+export default function articles(state=initialState, action) {
   let newState = {}
   switch (action.type) {
       case LOAD_ARTICLES:

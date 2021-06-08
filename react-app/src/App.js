@@ -5,12 +5,11 @@ import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
 import NavBar from "./components/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
-import UsersList from "./components/UsersList";
-import User from "./components/User";
-import Profile from "./components/Profile"
+import Profile from "./components/Profile/Profile"
 import { authenticate } from "./store/session";
 import LandingPage from './components/landingpage/LandingPage'
-import Source from './components/Articles'
+import Source from './components/Articles/Articles'
+import Discover from './components/Discover/Discover'
 function App() {
   const user = useSelector(state => state.session.user)
   const [loaded, setLoaded] = useState(false);
@@ -47,8 +46,8 @@ function App() {
         <ProtectedRoute path='/source/:id' exact={true}>
           <Source/>
         </ProtectedRoute>
-        <ProtectedRoute path="/users" exact={true} >
-          <UsersList/>
+        <ProtectedRoute path='/discover' exact={true}>
+        <Discover/>
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {useParams} from 'react-router-dom'
-import ProfileDrawer from './profileDrawer/ProfileDrawer'
-import {loadA} from '../store/source'
+import ProfileDrawer from '../Profile/profileDrawer/ProfileDrawer'
+import {loadA} from '../../store/articles'
 import ArticleCard from './ArticleCard'
 
 

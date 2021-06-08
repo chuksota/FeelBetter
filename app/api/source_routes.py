@@ -1,5 +1,5 @@
-from flask import Blueprint
-from app.models import Source, db
+from flask import Blueprint, request
+from app.models import Source, db, Feed
 import feedparser
 
 source_routes = Blueprint('source', __name__)
@@ -7,6 +7,7 @@ source_routes = Blueprint('source', __name__)
 @source_routes.route('/<int:id>')
 def getArticles(id):
   source = Source.query.get(id)
+  print(source)
   sourceArticles = feedparser.parse(source.url)
   posts = sourceArticles.entries
 
@@ -29,5 +30,22 @@ def getArticles(id):
 
   return posts_details
 
+@source_routes.route('/all')
+def getAll():
+  sources = Source.query.all()
+  sourceDict = {}
+  for source in sources:
+    newSource = source.to_simple_dict()
+    sourceDict[newSource['id']] = newSource
+  return  sourceDict
 
-# ['title', 'title_detail', 'links', 'link', 'comments', 'authors', 'author', 'author_detail', 'published', 'published_parsed', 'tags', 'id', 'guidislink', 'summary', 'summary_detail', 'wfw_commentrss', 'slash_comments']
+@source_routes.route('/follow', methods=["POST"])
+def followSource():
+  data = request.json
+  source_id = int(data['source_id'])
+  feed_id = int(data["feed_id"])
+  feed = Feed.query.get(feed_id)
+  feed.sources.append(Source.query.get(source_id))
+  db.session.add(feed)
+  db.session.commit()
+  return {}

@@ -45,7 +45,7 @@ const ArticleCard = ({article}) => {
       <CardHeader
         title={article.title}
         subheader={article.published}
-        subheader={`By: ${article.author}`}
+        // subheader={`By: ${article.author}`}
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
