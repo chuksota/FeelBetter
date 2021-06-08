@@ -50,13 +50,13 @@ const FeedComp = ({feeds}) => {
     <>
     <List>
         <ListItem key={feeds.id} button onClick={handleClick}>
+          <ListItemText primary={feeds?.name} />
           <IconButton aria-label='edit' className={classes.margin} >
             <EditIcon fontSize="small"/>
           </IconButton>
           <IconButton aria-label="delete" className={classes.margin} onClick={()=> handleDelete(feeds?.id)}>
           <DeleteIcon fontSize="small" />
         </IconButton>
-          <ListItemText primary={feeds?.name} />
           {open ? <ExpandLess /> : <ExpandMore />}
         </ListItem>
       <Collapse in={open} timeout="auto" unmountOnExit>

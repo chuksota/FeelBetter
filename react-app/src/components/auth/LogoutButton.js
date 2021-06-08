@@ -23,7 +23,7 @@ const LogoutButton = () => {
     dispatch(logout());
   };
 
-  return <Button size="small" className={classes.link} onClick={onLogout}>Logout</Button>;
+  return <Button size="small" variant='outlined' className={classes.link} onClick={onLogout}>Logout</Button>;
 };
 
 export default LogoutButton;

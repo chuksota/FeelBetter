@@ -60,7 +60,7 @@ const ProfileDrawer = ({ followed, setIsLoading}) => {
 
   useEffect(()=>{
     dispatch(loadUser())
-  },[dispatch, followed, setIsLoading])
+  },[dispatch, setIsLoading])
 
   return (
     <Drawer
@@ -93,7 +93,7 @@ const ProfileDrawer = ({ followed, setIsLoading}) => {
       ))}
       <CreateFeedFormModal feedId={feedId} setFeedId={setFeedId} />
       <Divider />
-      <LogoutButton className={classes.bottom} />
+      <LogoutButton  variant='outlined' className={classes.bottom} />
     </Drawer>
   )
 }
