@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import Collapse from '@material-ui/core/Collapse';
@@ -7,13 +7,15 @@ import ListItemText from '@material-ui/core/ListItemText';
 import List from '@material-ui/core/List';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
-import {deleteOne, add} from '../../store/session'
+import {deleteOne, add, loadUser} from '../../store/session'
 import EditIcon from '@material-ui/icons/Edit';
 import { makeStyles } from '@material-ui/core/styles';
 import {useDispatch} from 'react-redux'
 import { NavLink } from 'react-router-dom';
 import StarOutlineIcon from '@material-ui/icons/StarOutline';
 import {ListItemIcon} from '@material-ui/core'
+
+
 const useStyles = makeStyles((theme) => ({
   margin: {
     margin: theme.spacing(1),
@@ -29,16 +31,20 @@ const useStyles = makeStyles((theme) => ({
 const FeedComp = ({feeds}) => {
   const classes = useStyles()
   const dispatch = useDispatch()
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(true);
   const [feedId, setFeedId] = React.useState(null)
 
   const handleDelete = (id) => {
-    dispatch(deleteOne(id)).then(() => setFeedId(!feedId))
+    setFeedId(id)
+    dispatch(deleteOne(id))
   }
 
   const handleClick = () => {
     setOpen(!open);
   };
+  useEffect(()=>{
+    dispatch(loadUser())
+  }, [dispatch, feedId])
 
   return(
     <>

@@ -3,10 +3,12 @@ import thunk from "redux-thunk";
 import session from "./session"
 import articles from './articles'
 import sources from './sources'
+import feeds from './feeds'
 const rootReducer = combineReducers({
     session,
     articles,
-    sources
+    sources,
+    feeds
 });
 
 

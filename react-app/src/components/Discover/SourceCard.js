@@ -10,12 +10,10 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
   },
 }));
-const SourceCard = ({source, feeds}) => {
+const SourceCard = ({source, feeds, followed, setFollowed}) => {
   const classes = useStyles()
   const dispatch = useDispatch()
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [source_id, setSourceId] = React.useState(null)
-  const [feed_id, setFeedId] = React.useState(null)
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
 
@@ -25,15 +23,16 @@ const SourceCard = ({source, feeds}) => {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  const sendFollow = (feed_id=1, source_id) => {
+
+  const sendFollow = (feed_id, source_id) => {
     dispatch(follow(feed_id, source_id))
+    setFollowed(!followed)
   }
-  // const [followed, setFollowed] = useState(false)
 
   return(
     <div>
       {source.name}
-      <Button onClick={handleClick}>Follow</Button>
+      <Button onClick={handleClick}>{followed? "Followed" : "Follow"}</Button>
       <Popover
         id={id}
         open={open}

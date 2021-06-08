@@ -6,13 +6,14 @@ import FeedComp from '../Feeds'
 import React, { useEffect, useState } from "react"
 import LogoutButton from "../../auth/LogoutButton"
 import { makeStyles } from '@material-ui/core/styles';
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import CreateFeedFormModal from '../../forms/'
 import { NavLink } from 'react-router-dom';
 import SearchIcon from '@material-ui/icons/Search';
 import HomeIcon from '@material-ui/icons/Home';
+import {loadUser} from '../../../store/session'
 const drawerWidth = 350;
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -51,12 +52,15 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const ProfileDrawer = ({ feeder: feeds }) => {
+const ProfileDrawer = ({ followed, setIsLoading}) => {
+  const dispatch= useDispatch()
   const classes = useStyles()
-  // const feeds = useSelector(state=>state.session.user.feeds)
-  console.log(feeds)
   const [feedId, setFeedId] = useState(null)
+  const feeds = useSelector(state=>state.session.user.feeds)
 
+  useEffect(()=>{
+    dispatch(loadUser())
+  },[dispatch, followed, setIsLoading])
 
   return (
     <Drawer

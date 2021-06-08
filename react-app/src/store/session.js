@@ -36,7 +36,7 @@ export const deleteOne = (id) => async (dispatch) => {
   }
   }),
   feed = response.json()
-  
+
   dispatch(deleteFeed(feed))
 }
 
@@ -63,7 +63,11 @@ export const authenticate = () => async (dispatch) => {
 
   dispatch(setUser(data))
 }
-
+export const loadUser = () => async (dispatch) => {
+  const response = await fetch('/api/users/me/')
+  const user = await response.json()
+  dispatch(setUser(user))
+}
 export const login = (email, password) => async (dispatch)  => {
   const response = await fetch('/api/auth/login', {
     method: 'POST',

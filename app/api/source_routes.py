@@ -18,11 +18,14 @@ def getArticles(id):
     temp = {}
     temp['title'] = post.title
     temp['summary'] = post.summary
-    if(post.author):
+    if("author" in post):
       temp['author'] = post.author
     else:
       temp["author"] = "Unknown"
-    temp['published'] = post.published
+      if("published" in post):
+        temp['published'] = post.published
+      else:
+        temp['published'] = "Unknown"
     temp['link'] = post.link
     posts_list.append(temp)
 

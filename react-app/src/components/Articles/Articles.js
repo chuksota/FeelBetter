@@ -11,9 +11,9 @@ const Source = () => {
   const dispatch = useDispatch()
   const feeds = useSelector(state=> state.session.user.feeds)
   const {id} =  useParams()
-  const articles = useSelector(state=> state.sources)
+  const articles = useSelector(state=> state.articles)
   const articlesArr = Object.values(articles)
-
+  
   useEffect(()=>{
      dispatch(loadA(id))
   },[dispatch, id])

@@ -10,20 +10,21 @@ const dispatch = useDispatch()
 const feeds = useSelector(state=> state.session.user.feeds)
 const sources = useSelector(state=> state.sources)
 const sourcesArr = Object.values(sources)
-
+const [followed, setFollowed] = React.useState(false)
 useEffect(()=> {
   dispatch(loadS())
 }, [dispatch])
 
-// const followASource = (id) => {
-//   dispatch(follow(id))
-// }
+
   return(
     <>
-    <ProfileDrawer feeder={feeds}/>
+    <ProfileDrawer feeder={feeds} followed={followed}/>
     <div className='testing'>
     {sourcesArr.map((source)=>(
-     <SourceCard key={source.id} source={source} feeds={feeds}/>
+     <SourceCard key={source.id} source={source}
+     feeds={feeds}
+     followed={followed}
+     setFollowed={setFollowed}/>
     ))}
     </div>
     </>
