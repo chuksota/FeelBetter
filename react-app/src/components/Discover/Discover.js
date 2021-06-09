@@ -22,7 +22,7 @@ const newMethod2 = () => {
 
 let sourcesObj = newMethod2()
 
-const newMethod3 = () =>{
+const unfollowMethod = () =>{
   const feedObj = {}
   for(let i = 0; i < feeds.length; i++){
     let feed = feeds[i]
@@ -35,7 +35,7 @@ const newMethod3 = () =>{
   }
 
 
-const feedObj = newMethod3()
+const feedObj = unfollowMethod()
 
 const newMethod = () => {
   let newDict = {}

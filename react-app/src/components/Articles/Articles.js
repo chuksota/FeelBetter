@@ -5,7 +5,7 @@ import ProfileDrawer from '../Profile/profileDrawer/ProfileDrawer'
 import {loadA} from '../../store/articles'
 import ArticleCard from './ArticleCard'
 import {loadS} from '../../store/sources'
-
+import './articles.css'
 
 const Source = () => {
   const dispatch = useDispatch()

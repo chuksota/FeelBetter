@@ -200,12 +200,4 @@ body{
   color: white;
 }
 
-.right_view_area{
-  width: 100%;
-  display: flex;
-  align-items: center;
-  color: #fff;
-  flex-direction: column;
-}
-
 
