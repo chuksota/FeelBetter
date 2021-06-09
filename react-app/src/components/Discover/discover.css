@@ -21,7 +21,7 @@
   color: darkgrey;
 }
 
-.source_name{
+.feed_content{
   color:darkgrey;
   display: flex;
   flex-direction: row;
@@ -30,4 +30,9 @@
   font-size: 20px;
   margin-bottom: 20px;
   text-decoration: none;
+}
+
+.source_name{
+  text-decoration: none;
+  color: darkgrey;
 }

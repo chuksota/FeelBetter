@@ -46,8 +46,8 @@ const SourceCard = ({source, feeds, followed, setFollowed, sourcesObj, feedObj})
       <div className='feed_content'>
         <NavLink to={`/source/${source.id}`} className='source_name'>
         {source.name}
-      <Button variant='outlined' size='small' className={classes.discoverButtons} onClick={handleClick}>{sourcesObj[source.id]? "Followed" : "Follow"}</Button>
         </NavLink>
+      <Button variant='outlined' size='small' className={classes.discoverButtons} onClick={handleClick}>{sourcesObj[source.id]? "Followed" : "Follow"}</Button>
       </div>
       <Popover
         id={id}
