@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Popover from '@material-ui/core/Popover';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import { NavLink } from 'react-router-dom';
 const useStyles = makeStyles((theme) => ({
   typography: {
     padding: theme.spacing(2),
@@ -43,10 +44,10 @@ const SourceCard = ({source, feeds, followed, setFollowed, sourcesObj, feedObj})
   return(
     <div>
       <div className='feed_content'>
-        <a href={source.url} className='source_name'>
+        <NavLink to={`/source/${source.id}`} className='source_name'>
         {source.name}
       <Button variant='outlined' size='small' className={classes.discoverButtons} onClick={handleClick}>{sourcesObj[source.id]? "Followed" : "Follow"}</Button>
-        </a>
+        </NavLink>
       </div>
       <Popover
         id={id}
