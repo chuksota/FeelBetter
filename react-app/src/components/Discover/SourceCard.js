@@ -1,6 +1,6 @@
-import React, {useState} from 'react'
+import React from 'react'
 import {follow, unfollow} from '../../store/sources'
-import {useDispatch, useSelector} from 'react-redux'
+import {useDispatch} from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles';
 import Popover from '@material-ui/core/Popover';
 import Typography from '@material-ui/core/Typography';

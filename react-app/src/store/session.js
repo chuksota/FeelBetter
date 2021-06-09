@@ -2,7 +2,6 @@
 const SET_USER = "session/SET_USER";
 const REMOVE_USER = "session/REMOVE_USER";
 
-const LOAD_FEEDS = 'feeds/LOAD_FEEDS'
 const ADD_FEED = 'feeds/ADD_FEED'
 const DELETE_FEED = 'feeds/DELETE_FEED'
 
@@ -89,13 +88,12 @@ export const login = (email, password) => async (dispatch)  => {
 }
 
 export const logout = () => async (dispatch) => {
-  const response = await fetch("/api/auth/logout", {
+   await fetch("/api/auth/logout", {
     headers: {
       "Content-Type": "application/json",
     }
   });
 
-  const data = await response.json();
   dispatch(removeUser());
 };
 

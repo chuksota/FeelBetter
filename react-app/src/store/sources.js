@@ -1,5 +1,5 @@
 const LOAD_SOURCES = 'sources/LOAD_SOURCES'
-const FOLLOW_SOURCE = 'sources/FOLLOW_SOURCE'
+
 
 const loadSources = (sources) => ({
   type: LOAD_SOURCES,

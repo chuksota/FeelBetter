@@ -7,12 +7,11 @@ import SourceCard from './SourceCard'
 const Discover = () => {
 const dispatch = useDispatch()
 const feeds = useSelector(state=> state.session.user.feeds)
-const feedSources = useSelector(state=>state.session.user.sources)
 const sources = useSelector(state=> state.sources)
 const sourcesArr = Object.values(sources)
 
 const newMethod2 = () => {
-  const sources = new Object()
+  const sources = {}
   feeds.forEach((feed)=>{
     feed.sources.forEach((source)=>{
       sources[source.id] = true
