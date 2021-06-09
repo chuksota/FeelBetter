@@ -9,6 +9,10 @@ const useStyles = makeStyles((theme) => ({
   typography: {
     padding: theme.spacing(2),
   },
+  discoverButtons: {
+    background: "#32E875",
+    color: "white"
+  }
 }));
 const SourceCard = ({source, feeds, followed, setFollowed, sourcesObj, feedObj}) => {
   const classes = useStyles()
@@ -38,8 +42,12 @@ const SourceCard = ({source, feeds, followed, setFollowed, sourcesObj, feedObj})
 
   return(
     <div>
-      {source.name}
-      <Button onClick={handleClick}>{sourcesObj[source.id]? "Followed" : "Follow"}</Button>
+      <div className='feed_content'>
+        <a href={source.url} className='source_name'>
+        {source.name}
+      <Button variant='outlined' size='small' className={classes.discoverButtons} onClick={handleClick}>{sourcesObj[source.id]? "Followed" : "Follow"}</Button>
+        </a>
+      </div>
       <Popover
         id={id}
         open={open}
@@ -57,10 +65,9 @@ const SourceCard = ({source, feeds, followed, setFollowed, sourcesObj, feedObj})
         {feeds.map((feed)=>(
           <Typography key={feed.id}>
             {feed.name}
-            <Button onClick={()=> sendFollow(feed.id, source.id) }>add</Button>
+            <Button variant='contained'  onClick={()=> sendFollow(feed.id, source.id)}>add</Button>
           </Typography>
         ))}
-
       </Popover>
     </div>
   )

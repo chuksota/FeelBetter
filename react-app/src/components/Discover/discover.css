@@ -1,0 +1,32 @@
+.discover_feed{
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+.discover-header{
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+.discover-header_title{
+  color:darkgrey;
+  font-size: 50px;
+  margin: 0px;
+  display:flex;
+}
+
+.discover_sub{
+  color: darkgrey;
+}
+
+.source_name{
+  color:darkgrey;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-family: sans-serif;
+  font-size: 20px;
+  margin-bottom: 20px;
+}

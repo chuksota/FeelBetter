@@ -204,14 +204,8 @@ body{
   width: 100%;
   display: flex;
   align-items: center;
-  color: white;
+  color: #fff;
   flex-direction: column;
 }
 
-.testing{
-  color:white;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: center;
-}
+

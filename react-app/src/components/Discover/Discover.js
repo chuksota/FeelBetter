@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import {loadS} from '../../store/sources'
 import ProfileDrawer from '../Profile/profileDrawer/ProfileDrawer'
 import SourceCard from './SourceCard'
-
+import './discover.css'
 const Discover = () => {
 const dispatch = useDispatch()
 const feeds = useSelector(state=> state.session.user.feeds)
@@ -56,7 +56,15 @@ useEffect(()=> {
   return(
     <>
     <ProfileDrawer feeder={feeds} followed={followed}/>
-    <div className='testing'>
+    <div className='discover_feed'>
+      <div className='discover-header'>
+      <div className="discover-header_title">
+      <h1>Discover</h1>
+      </div>
+      <div>
+      <h2 className='discover_sub'>Stop getting your mental health information from Tik Tok. </h2>
+      </div>
+      </div>
     {sourcesArr.map((source)=>(
      <SourceCard key={source.id}
      source={source}

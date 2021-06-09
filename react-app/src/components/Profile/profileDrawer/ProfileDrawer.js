@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
   },
   drawerPaper: {
     width: drawerWidth,
-    background: "#DBD3D8"
+    background: "darkgrey"
   },
   // necessary for content to be below app bar
   toolbar: theme.mixins.toolbar,
@@ -49,6 +49,9 @@ const useStyles = makeStyles((theme) => ({
   },
   bottom: {
     alignSelf: "Flex-end"
+  },
+  text: {
+    color: 'fff'
   }
 }));
 
@@ -76,7 +79,7 @@ const ProfileDrawer = ({ followed, setIsLoading}) => {
           <ListItemIcon>
             <SearchIcon size='small' />
           </ListItemIcon>
-          <ListItemText primary="Discover" />
+          <ListItemText  primary="Discover" />
         </ListItem>
       </NavLink>
       <NavLink className={classes.margin} to='/profile'>
