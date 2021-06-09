@@ -19,7 +19,23 @@ const newMethod2 = () => {
   })
   return sources
 }
+
 let sourcesObj = newMethod2()
+
+const newMethod3 = () =>{
+  const feedObj = {}
+  for(let i = 0; i < feeds.length; i++){
+    let feed = feeds[i]
+    let feed_id = feeds[i].id
+    for(let j = 0; j < feed.sources.length; j++){
+      feedObj[feed.sources[j].id] = feed_id
+    }
+  }
+  return feedObj
+  }
+
+
+const feedObj = newMethod3()
 
 const newMethod = () => {
   let newDict = {}
@@ -42,11 +58,13 @@ useEffect(()=> {
     <ProfileDrawer feeder={feeds} followed={followed}/>
     <div className='testing'>
     {sourcesArr.map((source)=>(
-     <SourceCard key={source.id} source={source}
+     <SourceCard key={source.id}
+     source={source}
      feeds={feeds}
      followed={followed}
      setFollowed={setFollowed}
      sourcesObj={sourcesObj}
+     feedObj={feedObj}
      />
     ))}
     </div>

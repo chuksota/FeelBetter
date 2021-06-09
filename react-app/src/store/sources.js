@@ -8,12 +8,12 @@ const loadSources = (sources) => ({
 
 export const unfollow = (feed_id, source_id) => async (dispatch)=> {
     await fetch('/api/source/unfollow',{
-    methods: "POST",
-    headers:{
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({feed_id, source_id})
-  })
+      method:"POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({feed_id, source_id})
+    })
 }
 
 export const follow = (feed_id, source_id) => async (dispatch) => {

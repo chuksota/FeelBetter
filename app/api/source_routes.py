@@ -62,3 +62,4 @@ def unfollowSource():
   feed.sources.remove(Source.query.get(source_id))
   db.session.add(feed)
   db.session.commit()
+  return {}
