@@ -4,7 +4,7 @@ import {useParams} from 'react-router-dom'
 import ProfileDrawer from '../Profile/profileDrawer/ProfileDrawer'
 import {loadA} from '../../store/articles'
 import ArticleCard from './ArticleCard'
-
+import {loadS} from '../../store/sources'
 
 
 const Source = () => {
@@ -13,9 +13,16 @@ const Source = () => {
   const {id} =  useParams()
   const articles = useSelector(state=> state.articles)
   const articlesArr = Object.values(articles)
+  const sources = useSelector(state=>state.sources)
+  let name
+
+  if(sources[id]){
+    name = sources[id].name
+  }
 
   useEffect(()=>{
      dispatch(loadA(id))
+     dispatch(loadS())
   },[dispatch, id])
 
 
@@ -25,6 +32,7 @@ const Source = () => {
      <ProfileDrawer feeder={feeds}/>
 
     <div className="right_view_area">
+      <h1>{`${name} - All`}</h1>
       {articlesArr.map((article)=>(
         <ArticleCard key={article.title} article={article}/>
       ))}
