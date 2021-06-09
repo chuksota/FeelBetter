@@ -60,7 +60,7 @@ const ProfileDrawer = ({ followed, setIsLoading}) => {
 
   useEffect(()=>{
     dispatch(loadUser())
-  },[dispatch, setIsLoading])
+  },[dispatch, followed, setIsLoading])
 
   return (
     <Drawer

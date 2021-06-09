@@ -1,4 +1,4 @@
-const LOAD_FEEDS = 'feeds/LOAD_FEEDS'
+
 const ADD_FEED = 'feeds/ADD_FEED'
 const DELETE_FEED = 'feeds/DELETE_FEED'
 

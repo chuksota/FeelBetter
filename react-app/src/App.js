@@ -11,7 +11,6 @@ import LandingPage from './components/landingpage/LandingPage'
 import Source from './components/Articles/Articles'
 import Discover from './components/Discover/Discover'
 function App() {
-  const user = useSelector(state => state.session.user)
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
 
@@ -20,7 +19,7 @@ function App() {
       await dispatch(authenticate());
       setLoaded(true);
     })();
-  }, []);
+  }, [dispatch]);
 
   if (!loaded) {
     return null;

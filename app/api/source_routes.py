@@ -52,3 +52,13 @@ def followSource():
   db.session.add(feed)
   db.session.commit()
   return {}
+
+@source_routes.route('/unfollow', methods=["POST"])
+def unfollowSource():
+  data = request.json
+  source_id = int(data['source_id'])
+  feed_id = int(data["feed_id"])
+  feed = Feed.query.get(feed_id)
+  feed.sources.remove(Source.query.get(source_id))
+  db.session.add(feed)
+  db.session.commit()

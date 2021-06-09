@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {follow} from '../../store/sources'
+import {follow, unfollow} from '../../store/sources'
 import {useDispatch, useSelector} from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles';
 import Popover from '@material-ui/core/Popover';
@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
   },
 }));
-const SourceCard = ({source, feeds, followed, setFollowed}) => {
+const SourceCard = ({source, feeds, followed, setFollowed, sourcesObj}) => {
   const classes = useStyles()
   const dispatch = useDispatch()
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -24,15 +24,20 @@ const SourceCard = ({source, feeds, followed, setFollowed}) => {
     setAnchorEl(null);
   };
 
-  const sendFollow = (feed_id, source_id) => {
+  const sendFollow = (feed_id, source_id, isFollowed) => {
+    if(isFollowed){
+      dispatch(unfollow(feed_id, source_id))
+    }else{
     dispatch(follow(feed_id, source_id))
-    setFollowed(!followed)
+    }
+    setFollowed({...followed, [source.id]: !followed[source.id]})
+    handleClose()
   }
 
   return(
     <div>
       {source.name}
-      <Button onClick={handleClick}>{followed? "Followed" : "Follow"}</Button>
+      <Button onClick={handleClick}>{sourcesObj[source.id]? "Followed" : "Follow"}</Button>
       <Popover
         id={id}
         open={open}

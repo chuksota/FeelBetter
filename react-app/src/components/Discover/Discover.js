@@ -7,27 +7,48 @@ import SourceCard from './SourceCard'
 const Discover = () => {
 const dispatch = useDispatch()
 const feeds = useSelector(state=> state.session.user.feeds)
+const feedSources = useSelector(state=>state.session.user.sources)
 const sources = useSelector(state=> state.sources)
 const sourcesArr = Object.values(sources)
-const newDict = {}
-sourcesArr.forEach((source)=>{
-  newDict[source.id] = false
-})
-const [followed, setFollowed] = React.useState(false)
+
+const newMethod2 = () => {
+  const sources = new Object()
+  feeds.forEach((feed)=>{
+    feed.sources.forEach((source)=>{
+      sources[source.id] = true
+    })
+  })
+  return sources
+}
+let sourcesObj = newMethod2()
+
+const newMethod = () => {
+  let newDict = {}
+  sourcesArr.forEach((source)=>{
+    newDict[source.id] = false
+  })
+  return newDict
+}
+
+const [followed, setFollowed] = React.useState(newMethod())
+
 useEffect(()=> {
   dispatch(loadS())
 }, [dispatch])
+
 
 
   return(
     <>
     <ProfileDrawer feeder={feeds} followed={followed}/>
     <div className='testing'>
-    {sourcesArr.map((source, idx)=>(
+    {sourcesArr.map((source)=>(
      <SourceCard key={source.id} source={source}
      feeds={feeds}
-     followed={followed[idx]}
-     setFollowed={setFollowed}/>
+     followed={followed}
+     setFollowed={setFollowed}
+     sourcesObj={sourcesObj}
+     />
     ))}
     </div>
     </>
