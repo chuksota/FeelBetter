@@ -13,7 +13,7 @@ const Source = () => {
   const {id} =  useParams()
   const articles = useSelector(state=> state.articles)
   const articlesArr = Object.values(articles)
-  
+
   useEffect(()=>{
      dispatch(loadA(id))
   },[dispatch, id])
@@ -26,7 +26,7 @@ const Source = () => {
 
     <div className="right_view_area">
       {articlesArr.map((article)=>(
-        <ArticleCard key={article.id} article={article}/>
+        <ArticleCard key={article.title} article={article}/>
       ))}
     </div>
     </>

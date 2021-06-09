@@ -17,12 +17,9 @@ const SourceCard = ({source, feeds, followed, setFollowed, sourcesObj, feedObj})
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
   const source_id = source.id
-  console.log(feedObj)
-  console.log(source_id)
   const handleClick = (event) => {
     if(sourcesObj[source.id]){
       const feed_id = feedObj[source_id]
-      console.log(feed_id)
       dispatch(unfollow(feed_id, source_id))
       setFollowed({...followed, [source.id]: !followed[source.id]})
     }else{
