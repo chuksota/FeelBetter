@@ -7,11 +7,10 @@ const useStyles = makeStyles((theme) => ({
   link: {
   textDecoration: 'none',
   color: "black",
-  marginTop: "40em"
  },
  login: {
   textDecoration: 'none',
-  color: "#32E875",
+  color: "red",
   border: "#32E875"
  }
 }));
@@ -23,7 +22,7 @@ const LogoutButton = () => {
     dispatch(logout());
   };
 
-  return <Button size="small" variant='outlined' className={classes.link} onClick={onLogout}>Logout</Button>;
+  return <Button size="small" variant='outlined' className={classes.login} onClick={onLogout}>Logout</Button>;
 };
 
 export default LogoutButton;

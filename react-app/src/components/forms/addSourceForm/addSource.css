@@ -1,0 +1,14 @@
+.add-source__container{
+  width: 700px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.create-source--header{
+  font-family: sans-serif;
+  font-weight: bold;
+  margin-left: 25px;
+}

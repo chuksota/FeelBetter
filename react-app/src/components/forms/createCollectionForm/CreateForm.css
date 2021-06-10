@@ -3,7 +3,17 @@
   flex-direction: column;
 }
 
-.form_div{
-  height: 200px;
-  width: 200px;
+.form--div{
+  display: flex;
+  height: 150px;
+  width:  400px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.create_collection--header{
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 30px;
 }

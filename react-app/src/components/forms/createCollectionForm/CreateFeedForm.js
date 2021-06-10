@@ -15,6 +15,7 @@ function CreateFeedForm({feedId, setFeedId }) {
 
   return (
     <div className='form--div'>
+    <div className='create_collection--header'>New Collection</div>
     <form className="create__form">
     <TextField
     value={name}

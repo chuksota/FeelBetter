@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import {addSource} from '../../../store/sources'
 import {Button, TextField} from "@material-ui/core"
+import './addSource.css'
+
 function CreateSourceForm({feedId, setFeedId }) {
   const dispatch = useDispatch();
   const [name, setName] = useState('')
@@ -13,8 +15,9 @@ function CreateSourceForm({feedId, setFeedId }) {
   }
 
   return (
+    <div className='add-source__container'>
+    <h1 className='create-source--header'>Couldn't find your favorite source for psych news? Add one here!</h1>
     <form className="create__form">
-    <h1>Couldn't find your favorite source for psych news? Add one here!</h1>
     <TextField
     value={name}
     onChange={e=>setName(e.target.value)}
@@ -26,6 +29,7 @@ function CreateSourceForm({feedId, setFeedId }) {
     label="Please insert an rss link" />
     <Button size="small" onClick={onSubmit}>submit</Button>
   </form>
+  </div>
   );
 }
 
