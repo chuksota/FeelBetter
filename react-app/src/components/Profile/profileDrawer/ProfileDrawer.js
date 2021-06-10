@@ -31,7 +31,10 @@ const useStyles = makeStyles((theme) => ({
   },
   drawerPaper: {
     width: drawerWidth,
-    background: "darkgrey"
+    background: "#0E0E0E",
+    '&::-webkit-scrollbar': {
+      display: "none"
+    }
   },
   // necessary for content to be below app bar
   toolbar: theme.mixins.toolbar,
@@ -45,13 +48,16 @@ const useStyles = makeStyles((theme) => ({
   },
   margin: {
     textDecoration: 'none',
-    color: 'black'
+    color: '#fff'
   },
   bottom: {
     alignSelf: "Flex-end"
   },
   text: {
     color: 'fff'
+  },
+  button:{
+    color: '#fff'
   }
 }));
 
@@ -77,7 +83,7 @@ const ProfileDrawer = ({ followed, setIsLoading}) => {
       <NavLink className={classes.margin} to='/discover'>
         <ListItem button>
           <ListItemIcon>
-            <SearchIcon size='small' />
+            <SearchIcon  className={classes.button} size='small' />
           </ListItemIcon>
           <ListItemText  primary="Discover" />
         </ListItem>
@@ -85,7 +91,7 @@ const ProfileDrawer = ({ followed, setIsLoading}) => {
       <NavLink className={classes.margin} to='/profile'>
         <ListItem button>
           <ListItemIcon>
-            <HomeIcon size='small' />
+            <HomeIcon className={classes.button} size='small' />
           </ListItemIcon>
           <ListItemText primary="All Feeds" />
         </ListItem>

@@ -13,6 +13,12 @@ const useStyles = makeStyles((theme) => ({
   discoverButtons: {
     background: "#32E875",
     color: "white"
+  },
+  popover: {
+    display: 'flex',
+    justifyContent: "space-between",
+    width: '200px',
+    marginBottom: '10px'
   }
 }));
 const SourceCard = ({source, feeds, followed, setFollowed, sourcesObj, feedObj}) => {
@@ -65,8 +71,10 @@ const SourceCard = ({source, feeds, followed, setFollowed, sourcesObj, feedObj})
       >
         {feeds.map((feed)=>(
           <Typography key={feed.id}>
+            <div className={classes.popover}>
             {feed.name}
-            <Button variant='contained'  onClick={()=> sendFollow(feed.id, source.id)}>add</Button>
+            <Button variant='contained' size='small' onClick={()=> sendFollow(feed.id, source.id)}>add</Button>
+            </div>
           </Typography>
         ))}
       </Popover>

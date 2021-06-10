@@ -6,7 +6,7 @@ import {loadA} from '../../store/articles'
 import ArticleCard from './ArticleCard'
 import {loadS} from '../../store/sources'
 import './articles.css'
-
+import {Button} from '@material-ui/core'
 const Source = () => {
   const dispatch = useDispatch()
   const feeds = useSelector(state=> state.session.user.feeds)
@@ -32,7 +32,7 @@ const Source = () => {
      <ProfileDrawer feeder={feeds}/>
 
     <div className="right_view_area">
-      <h1>{`${name} - All`}</h1>
+      <h1 className="feed_header">{`${name} - All`} </h1>
       {articlesArr.map((article)=>(
         <ArticleCard key={article.title} article={article}/>
       ))}

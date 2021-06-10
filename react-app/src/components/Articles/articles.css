@@ -1,5 +1,34 @@
 .right_view_area{
-  margin: auto;
+  margin-left: 600px;
   width:50%;
   padding: 10px;
+  font-family: sans-serif;
+}
+
+.feed_header{
+  display: flex;
+color: darkgrey;
+justify-content: space-between;
+margin-bottom: 2em;
+border-bottom: 1px solid grey;
+font-weight: bold;
+font-size: xx-large;
+}
+
+.article-content{
+  padding: 1px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.article-content:hover{
+border-left: 1px solid darkgrey;
+}
+.article-header{
+margin-top: 0;
+font-size: larger;
+}
+.summary{
+  font-size: medium;
 }

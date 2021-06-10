@@ -1,5 +1,5 @@
 body{
-  background: rgba(0, 0, 0, 0.918);
+  background:#000000;
 }
 .nav__bar {
   height: 5em;
@@ -199,5 +199,3 @@ body{
   justify-content: center;
   color: white;
 }
-
-

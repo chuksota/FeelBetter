@@ -22,10 +22,14 @@ const useStyles = makeStyles((theme) => ({
   },
   extendedIcon: {
     marginRight: theme.spacing(1),
+    color: '#fff'
   },
   navLink: {
     textDecoration: "none",
-    color: "black"
+    color: "#fff"
+  },
+  icon: {
+    color: '#fff'
   }
 }));
 const FeedComp = ({feeds}) => {
@@ -50,12 +54,12 @@ const FeedComp = ({feeds}) => {
     <>
     <List>
         <ListItem key={feeds.id} button onClick={handleClick}>
-          <ListItemText primary={feeds?.name} />
+          <ListItemText className={classes.navLink} primary={feeds?.name} />
           <IconButton aria-label='edit' className={classes.margin} >
-            <EditIcon fontSize="small"/>
+            <EditIcon className={classes.icon} fontSize="small"/>
           </IconButton>
           <IconButton aria-label="delete" className={classes.margin} onClick={()=> handleDelete(feeds?.id)}>
-          <DeleteIcon fontSize="small" />
+          <DeleteIcon className={classes.icon}  fontSize="small" />
         </IconButton>
           {open ? <ExpandLess /> : <ExpandMore />}
         </ListItem>
@@ -65,7 +69,7 @@ const FeedComp = ({feeds}) => {
             <NavLink  key={source.id} className={classes.navLink} to={`/source/${source.id}`}>
             <ListItem key={source.id} button>
               <ListItemIcon>
-              <StarOutlineIcon/>
+              <StarOutlineIcon className={classes.icon} />
               </ListItemIcon>
               <ListItemText primary={source?.name} />
             </ListItem>
