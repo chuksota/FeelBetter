@@ -38,6 +38,7 @@ const ArticleCard = ({article}) => {
     <a className={classes.link} href={article.link}>
       <div className='article-content'>
         <h1 className='article-header'>{article.title}</h1>
+        <div>{`By: ${article.author}`}</div>
         <div className='published'>{article.published}</div>
         <div className='summary'>{article.summary}</div>
       </div>

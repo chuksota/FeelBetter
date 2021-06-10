@@ -9,11 +9,14 @@ import { makeStyles } from '@material-ui/core/styles';
 import { useSelector, useDispatch } from "react-redux"
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import CreateFeedFormModal from '../../forms/'
+import CreateFeedFormModal from '../../forms/createCollectionForm'
 import { NavLink } from 'react-router-dom';
 import SearchIcon from '@material-ui/icons/Search';
 import HomeIcon from '@material-ui/icons/Home';
 import {loadUser} from '../../../store/session'
+import CreateSourceFormModal from '../../forms/addSourceForm/index'
+
+
 const drawerWidth = 350;
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -100,9 +103,12 @@ const ProfileDrawer = ({ followed, setIsLoading}) => {
       {feeds.map((feed) => (
         <FeedComp key={feed.id} feeds={feed} />
       ))}
+      <Divider/>
       <CreateFeedFormModal feedId={feedId} setFeedId={setFeedId} />
       <Divider />
-      <LogoutButton  variant='outlined' className={classes.bottom} />
+      <CreateSourceFormModal/>
+      <Divider/>
+      <LogoutButton variant='outlined' />
     </Drawer>
   )
 }

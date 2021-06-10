@@ -64,3 +64,16 @@ def unfollowSource():
   db.session.commit()
   return {}
 
+@source_routes.route('/add', methods=["POST"])
+def addSource():
+  data = request.json
+  print("data-----------", data)
+  name = data['name']
+  url = data['url']
+  source = Source(
+    name = name,
+    url = url
+  )
+  db.session.add(source)
+  db.session.commit()
+  return source.to_simple_dict()
