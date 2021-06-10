@@ -4,7 +4,7 @@ import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import React from 'react'
-
+import {Button} from '@material-ui/core'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -34,6 +34,20 @@ const useStyles = makeStyles((theme) => ({
 
 const ArticleCard = ({article}) => {
   const classes = useStyles();
+
+  // const toggleDrawer = (anchor, open) => (event) => {
+  //   if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+  //     return;
+  //   }
+
+  //   setState({ ...state, [anchor]: open });
+  // };
+  // const [state, setState] = React.useState({
+  //   top: false,
+  //   left: false,
+  //   bottom: false,
+  //   right: false,
+  // });
   return(
     <a className={classes.link} href={article.link}>
     <Card className={classes.root}>
@@ -41,6 +55,7 @@ const ArticleCard = ({article}) => {
         title={article.title}
         subheader={article.published}
       />
+      {/* <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button> */}
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
         {article.summary}
