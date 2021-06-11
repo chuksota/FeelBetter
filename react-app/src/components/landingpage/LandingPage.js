@@ -5,6 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import {useDispatch} from 'react-redux'
 import { login } from "../../store/session";
 import {useHistory} from 'react-router-dom'
+import './footer.css'
 const useStyles = makeStyles((theme) => ({
   link: {
     background: "#32E875",
@@ -33,7 +34,7 @@ const LandingPage = () => {
     await dispatch(login(email, password));
     history.push('/profile')
   };
-  
+
   return (
     <div className="landing">
     <div className="landing__page" >
@@ -46,8 +47,22 @@ const LandingPage = () => {
       <Button size="medium" variant='contained' className={classes.padding} onClick={handleDemo}>Want to try us out?</Button>
       <div className="image_container"></div>
       </section>
-
     </div>
+    <footer className='footer'>
+      <div className='footer_names--container'>
+        <div className="footer__name">
+          Built By: Chuks Ota
+          <div className="footer__icons">
+            <a href="https://github.com/chuksota">
+              <i className="fab fa-github" />
+            </a>
+            <a href="https://www.linkedin.com/in/chuks-ota-818248127/">
+              <i className="fab fa-linkedin" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
     </div>
   )
 }

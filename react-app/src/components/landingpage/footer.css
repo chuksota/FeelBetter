@@ -1,0 +1,39 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-content: space-between;
+  background-color: 	#303030;
+  color: #f4f7f8;
+  width: 100%;
+  max-width: 100%;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  font-family: "Titillium Web", sans-serif;
+}
+
+.footer__names--container {
+  display: flex;
+  flex: column;
+  justify-content: space-between;
+}
+
+.footer__icons a {
+  padding: 0 0.5em;
+}
+
+.footer__icons a,
+.footer__icons i {
+  text-decoration: none;
+  color: #d2d9dd;
+}
+
+.footer__name {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: space-between;
+  padding: 0 5em;
+}
