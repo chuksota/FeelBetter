@@ -12,23 +12,30 @@ justify-content: space-between;
 margin-bottom: 2em;
 border-bottom: 1px solid grey;
 font-weight: bold;
-font-size: xx-large;
+font-size: 50px;
+color: #fff;
 }
 
 .article-content{
   padding: 1px;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   display: flex;
   flex-direction: column;
 }
 
 .article-content:hover{
-border-left: 1px solid darkgrey;
+border-left: 3px solid darkgrey;
+background-color: #222222;
 }
 .article-header{
 margin-top: 0;
 font-size: larger;
+margin-left: 3px;
 }
 .summary{
   font-size: medium;
+  margin-left: 3px;
+}
+.author{
+  margin-left: 3px;
 }

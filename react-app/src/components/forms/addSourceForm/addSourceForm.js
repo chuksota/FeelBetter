@@ -33,7 +33,6 @@ function CreateSourceForm({feedId, setFeedId, setShowModal }) {
 
   const onSubmit = (e, feed_id) => {
     e.preventDefault()
-    console.log(feed_id)
    dispatch(addSource(name, url, feed_id)).then(()=> setFeedId(!feedId))
    setShowModal(false)
    setName('')

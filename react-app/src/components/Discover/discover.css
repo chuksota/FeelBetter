@@ -11,14 +11,14 @@
   margin-bottom: 70px;
 }
 .discover-header_title{
-  color:darkgrey;
+  color: #fff;
   font-size: 50px;
   margin: 0px;
   display:flex;
 }
 
 .discover_sub{
-  color: darkgrey;
+  color: #fff;
 }
 
 .feed_content{
@@ -28,7 +28,7 @@
   justify-content: space-between;
   font-family: sans-serif;
   font-size: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   text-decoration: none;
 }
 
