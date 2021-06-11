@@ -32,6 +32,17 @@ const deleteFeed = (feed) => ({
 //   dispatch(loadFeeds(data))
 // }
 
+export const addAndFollow = (user_id, name, source_id) => async (dispatch) => {
+    await fetch('/api/feed/both',{
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({user_id, name, source_id})
+  }
+  )
+}
+
 export const add = (name) => async (dispatch) => {
   const response = await fetch("/api/feed", {
     method: "POST",

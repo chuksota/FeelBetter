@@ -44,3 +44,15 @@ def deleteFeed(id):
   db.session.delete(feed)
   db.session.commit()
   return selectedFeed
+
+@feed_routes.route('/both', methods=['POST'])
+def addAndFollow():
+  data = request.json
+  feed = Feed (
+  name = data['name'],
+  user_id = data['user_id']
+  )
+  db.session.add(feed)
+  feed.sources.append(Source.query.get(int(data['source_id'])))
+  db.session.commit()
+  return {}

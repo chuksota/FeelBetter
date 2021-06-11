@@ -4,13 +4,14 @@ import {addSource} from '../../../store/sources'
 import {Button, TextField} from "@material-ui/core"
 import './addSource.css'
 
-function CreateSourceForm({feedId, setFeedId }) {
+function CreateSourceForm({feedId, setFeedId, setShowModal }) {
   const dispatch = useDispatch();
   const [name, setName] = useState('')
   const [url, setUrl] = useState('')
   const onSubmit = (e) => {
     e.preventDefault()
    dispatch(addSource(name, url)).then(()=> setFeedId(!feedId))
+   setShowModal(false)
    setName('')
   }
 

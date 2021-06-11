@@ -18,7 +18,7 @@ function CreateFeedFormModal(props) {
       <Button  size="small" className={classes.color} onClick={() => setShowModal(true)}>Add a Collection</Button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <CreateFeedForm feedId={props.feedId} setFeedId={props.setFeedId}/>
+          <CreateFeedForm feedId={props.feedId} setFeedId={props.setFeedId} setShowModal={setShowModal}/>
         </Modal>
       )}
     </>

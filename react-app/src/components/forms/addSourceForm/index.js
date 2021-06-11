@@ -16,7 +16,7 @@ function CreateSourceFormModal(props) {
       <Button  size="small"  className={classes.color} onClick={() => setShowModal(true)}>Add a Source</Button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <CreateSourceForm feedId={props.feedId} setFeedId={props.setFeedId}/>
+          <CreateSourceForm feedId={props.feedId} setFeedId={props.setFeedId} setShowModal={setShowModal}/>
         </Modal>
       )}
     </>

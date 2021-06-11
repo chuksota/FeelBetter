@@ -3,7 +3,9 @@ import { useDispatch } from "react-redux";
 import {add} from '../../../store/session'
 import {Button, TextField} from "@material-ui/core"
 import "./CreateForm.css"
-function CreateFeedForm({feedId, setFeedId }) {
+import {useHistory} from 'react-router-dom'
+function CreateFeedForm({feedId, setFeedId, setShowModal }) {
+  const history = useHistory()
   const dispatch = useDispatch();
   const [name, setName] = useState('')
 
@@ -11,6 +13,8 @@ function CreateFeedForm({feedId, setFeedId }) {
     e.preventDefault()
    dispatch(add(name)).then(()=> setFeedId(!feedId))
    setName('')
+   setShowModal(false)
+   history.push('/discover')
   }
 
   return (
