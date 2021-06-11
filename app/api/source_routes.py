@@ -1,7 +1,7 @@
 from flask import Blueprint, request
-from app.models import Source, db, Feed
+from app.models import Source, db, Feed, User
 import feedparser
-
+from flask_login import current_user
 source_routes = Blueprint('source', __name__)
 
 @source_routes.route('/<int:id>')
@@ -21,11 +21,11 @@ def getArticles(id):
     if("author" in post):
       temp['author'] = post.author
     else:
-      temp["author"] = "Unknown"
+      temp["author"] = " "
       if("published" in post):
         temp['published'] = post.published
       else:
-        temp['published'] = "Unknown"
+        temp['published'] = " "
     temp['link'] = post.link
     posts_list.append(temp)
 
@@ -79,3 +79,34 @@ def addSource():
   feed.sources.append(source)
   db.session.commit()
   return source.to_simple_dict()
+
+@source_routes.route('/allArts', methods=["GET", "POST"])
+def getAllArticles():
+  data = request.json
+  user = User.query.get(int(data['user_id']))
+  sources = [source.to_simple_dict() for feed in user.feeds for source in feed.sources]
+  urls = {}
+  for source in sources:
+    urls[source['id']] = source['url']
+  urlsList = list(urls.values())
+  todaysPosts = []
+  todaysDict = {}
+  for url in urlsList:
+    articles = feedparser.parse(url)
+    newPosts = articles.entries
+    for post in newPosts:
+      temp = {}
+      temp['title'] = post.title
+      temp['summary'] = post.summary
+      if("author" in post):
+        temp['author'] = post.author
+      else:
+        temp["author"] = " "
+        if("published" in post):
+          temp['published'] = post.published
+        else:
+          temp['published'] = " "
+      temp['link'] = post.link
+      todaysPosts.append(temp)
+  todaysDict['todays'] = todaysPosts
+  return todaysDict

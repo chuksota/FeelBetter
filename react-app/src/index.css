@@ -194,8 +194,10 @@ body{
 }
 
 .header_one{
-  width: 100%;
+  width: 50%;
   display: flex;
   justify-content: center;
   color: white;
+
+  margin-left: 550px;
 }

@@ -8,7 +8,6 @@ import List from '@material-ui/core/List';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 import {deleteOne, loadUser} from '../../store/session'
-import EditIcon from '@material-ui/icons/Edit';
 import { makeStyles } from '@material-ui/core/styles';
 import {useDispatch} from 'react-redux'
 import { NavLink } from 'react-router-dom';
