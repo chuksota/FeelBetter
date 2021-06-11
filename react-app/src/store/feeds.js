@@ -39,8 +39,7 @@ export const addAndFollow = (user_id, name, source_id) => async (dispatch) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({user_id, name, source_id})
-  }
-  )
+  })
 }
 
 export const add = (name) => async (dispatch) => {

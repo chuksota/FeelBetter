@@ -3,13 +3,14 @@ import { useSelector, useDispatch} from "react-redux"
 import ProfileDrawer from '../Profile/profileDrawer/ProfileDrawer'
 import ArticleCard from '../Articles/ArticleCard'
 import {loadToday} from '../../store/articles'
-
+import '../Articles/articles.css'
 const Profile = () => {
   const dispatch = useDispatch()
   const user = useSelector(state => state.session.user)
   const randInt = Math.floor(Math.random() * 9) + 1
   const quotes =
-  ["“I found that with depression, one of the most important things you can realize is that you’re not alone. You’re not the first to go through it, you’re not gonna be the last to go through it,” — Dwayne “The Rock” Johnson",
+  [
+  "“I found that with depression, one of the most important things you can realize is that you’re not alone. You’re not the first to go through it, you’re not gonna be the last to go through it,” — Dwayne “The Rock” Johnson",
   "“Life doesn’t make any sense without interdependence. We need each other, and the sooner we learn that, the better for us all.”  — Erik Erikson",
   "“Mental health problems don’t define who you are. They are something you experience. You walk in the rain and you feel the rain, but, importantly, YOU ARE NOT THE RAIN.” — Matt Haig",
   "“The humanity we all share is more important than the mental illnesses we may not” ― Elyn R. Saks",
@@ -19,6 +20,7 @@ const Profile = () => {
   "“There is hope, even when your brain tells you there isn’t.” ― John Green",
   "“Anything that’s human is mentionable, and anything that is mentionable can be more manageable. When we can talk about our feelings, they become less overwhelming, less upsetting, and less scary.” — Fred Rogers"
 ]
+
 const articles = useSelector(state=> state.articles)
 const articlesArr = Object.values(articles)
 
@@ -29,12 +31,12 @@ useEffect(()=> {
   return(
     <>
         <ProfileDrawer setIsLoading={setIsLoading} />
-      <h1 className="header_one">
-        {quotes[randInt]}
+      <h1 className="header_one">{quotes[randInt]}</h1>
+        <div className='right_view_area'>
         {articlesArr.map((article)=>(
           <ArticleCard key={article.title} article={article}/>
-        ))}
-      </h1>
+          ))}
+          </div>
     </>
   )
 }

@@ -9,6 +9,7 @@ import { NavLink } from 'react-router-dom';
 import {TextField} from '@material-ui/core'
 import {addAndFollow} from '../../store/feeds'
 
+
 const useStyles = makeStyles((theme) => ({
   typography: {
     padding: theme.spacing(2),
@@ -39,9 +40,10 @@ const SourceCard = ({source, feeds, followed, setFollowed, sourcesObj, feedObj})
   const user = useSelector(state=> state.session.user)
 
   const handleSubmit =  () => {
-      dispatch(addAndFollow(user.id, name, source_id))
+      dispatch(addAndFollow(user.id, name, source_id)).then(()=> setFollowed({...followed, [source.id]: !followed[source.id]}))
       setName('')
       setAnchorEl(null)
+
     }
 
 
@@ -54,7 +56,7 @@ const SourceCard = ({source, feeds, followed, setFollowed, sourcesObj, feedObj})
     setAnchorEl(event.currentTarget);
     }
   };
-  
+
   const handleClose = () => {
     setAnchorEl(null);
   };
