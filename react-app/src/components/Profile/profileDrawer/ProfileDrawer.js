@@ -106,7 +106,7 @@ const ProfileDrawer = ({ followed, setIsLoading}) => {
       <Divider/>
       <CreateFeedFormModal feedId={feedId} setFeedId={setFeedId} />
       <Divider />
-      <CreateSourceFormModal/>
+      <CreateSourceFormModal feedId={feedId} setFeedId={setFeedId}/>
       <Divider/>
       <LogoutButton variant='outlined' />
     </Drawer>

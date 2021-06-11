@@ -37,7 +37,7 @@ const SourceCard = ({source, feeds, followed, setFollowed, sourcesObj, feedObj})
   const id = open ? 'simple-popover' : undefined;
   const source_id = source.id
   const user = useSelector(state=> state.session.user)
-  
+
   const handleSubmit =  () => {
       dispatch(addAndFollow(user.id, name, source_id))
       setName('')
@@ -54,6 +54,7 @@ const SourceCard = ({source, feeds, followed, setFollowed, sourcesObj, feedObj})
     setAnchorEl(event.currentTarget);
     }
   };
+  
   const handleClose = () => {
     setAnchorEl(null);
   };

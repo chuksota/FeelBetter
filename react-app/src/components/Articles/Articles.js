@@ -32,7 +32,7 @@ const Source = () => {
      <ProfileDrawer feeder={feeds}/>
 
     <div className="right_view_area">
-      <h1 className="feed_header">{`${name} - All`} </h1>
+      <h1 className="feed_header">{`${name} - All`} <Button></Button> </h1>
       {articlesArr.map((article)=>(
         <ArticleCard key={article.title} article={article}/>
       ))}

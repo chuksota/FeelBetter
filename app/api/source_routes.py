@@ -67,13 +67,15 @@ def unfollowSource():
 @source_routes.route('/add', methods=["POST"])
 def addSource():
   data = request.json
-  print("data-----------", data)
   name = data['name']
   url = data['url']
+  feed_id = int(data['feed_id'])
   source = Source(
     name = name,
     url = url
   )
   db.session.add(source)
+  feed = Feed.query.get(feed_id)
+  feed.sources.append(source)
   db.session.commit()
   return source.to_simple_dict()

@@ -55,9 +55,6 @@ const FeedComp = ({feeds}) => {
     <List>
         <ListItem key={feeds.id} button onClick={handleClick}>
           <ListItemText className={classes.navLink} primary={feeds?.name} />
-          <IconButton aria-label='edit' className={classes.margin} >
-            <EditIcon className={classes.icon} fontSize="small"/>
-          </IconButton>
           <IconButton aria-label="delete" className={classes.margin} onClick={()=> handleDelete(feeds?.id)}>
           <DeleteIcon className={classes.icon}  fontSize="small" />
         </IconButton>

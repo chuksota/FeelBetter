@@ -24,7 +24,7 @@ function CreateFeedForm({feedId, setFeedId, setShowModal }) {
     <TextField
     value={name}
     onChange={e=>setName(e.target.value)}
-    label="Name Your Feed"
+    label="Name Your Collection"
     ></TextField>
     <Button size="small" onClick={onSubmit}>submit</Button>
   </form>

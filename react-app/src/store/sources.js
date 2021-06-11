@@ -30,15 +30,15 @@ export const follow = (feed_id, source_id) => async (dispatch) => {
   })
 }
 
-export const addSource = (name, url) => async (dispatch) => {
-  const response = fetch('/api/source/follow', {
+export const addSource = (name, url, feed_id) => async (dispatch) => {
+  const response = fetch('/api/source/add', {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({name, url})
+    body: JSON.stringify({name, url, feed_id})
   })
-  const data = await response.JSON()
+  const data = await (await response).json()
   dispatch(addASource(data))
 }
 export const loadS = () => async (dispatch) => {
