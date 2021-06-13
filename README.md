@@ -1,98 +1,25 @@
-# Flask React Project
+# Welcome to Feel Better! 
 
-This is the backend for the Flask React project.
 
-## Getting started
+## Live Link: [Feel Better](https://feelbetter-app.herokuapp.com/)
+Feel Better is a [Feedly](feedly.com) inspired application that allows users to stay up to date with the latest news regarding their mental health. 
 
-1. Clone this repository (only this branch)
+## For more information, check out the [Wiki](https://github.com/chuksota/FeelBetter/wiki)
 
-   ```bash
-   git clone https://github.com/appacademy-starters/python-project-starter.git
-   ```
+* [Database Schema and Backend Routes](https://github.com/chuksota/FeelBetter/wiki/Database-Schema-and-Backend-Routes)
+* [MVP Feature List](https://github.com/chuksota/FeelBetter/wiki/MVP-Feature-List)
+* [Wireframe and React Routes](https://github.com/chuksota/FeelBetter/wiki/Wireframe-and-React-Routes)
 
-2. Install dependencies
-
-      ```bash
-      pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt
-      ```
-
-3. Create a **.env** file based on the example with proper settings for your
-   development environment
-4. Setup your PostgreSQL user, password and database and make sure it matches your **.env** file
-
-5. Get into your pipenv, migrate your database, seed your database, and run your flask app
-
-   ```bash
-   pipenv shell
-   ```
-
-   ```bash
-   flask db upgrade
-   ```
-
-   ```bash
-   flask seed all
-   ```
-
-   ```bash
-   flask run
-   ```
-
-6. To run the React App in development, checkout the [README](./react-app/README.md) inside the `react-app` directory.
-
-***
-*IMPORTANT!*
-   If you add any python dependencies to your pipfiles, you'll need to regenerate your requirements.txt before deployment.
-   You can do this by running:
-
-   ```bash
-   pipenv lock -r > requirements.txt
-   ```
-
-*ALSO IMPORTANT!*
-   psycopg2-binary MUST remain a dev dependency because you can't install it on apline-linux.
-   There is a layer in the Dockerfile that will install psycopg2 (not binary) for us.
-***
-
-## Deploy to Heroku
-
-1. Create a new project on Heroku
-2. Under Resources click "Find more add-ons" and add the add on called "Heroku Postgres"
-3. Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-command-line)
-4. Run
-
-   ```bash
-   heroku login
-   ```
-
-5. Login to the heroku container registry
-
-   ```bash
-   heroku container:login
-   ```
-
-6. Update the `REACT_APP_BASE_URL` variable in the Dockerfile.
-   This should be the full URL of your Heroku app: i.e. "https://flask-react-aa.herokuapp.com"
-7. Push your docker container to heroku from the root directory of your project.
-   This will build the dockerfile and push the image to your heroku container registry
-
-   ```bash
-   heroku container:push web -a {NAME_OF_HEROKU_APP}
-   ```
-
-8. Release your docker container to heroku
-
-   ```bash
-   heroku container:release web -a {NAME_OF_HEROKU_APP}
-   ```
-
-9. set up your database:
-
-   ```bash
-   heroku run -a {NAME_OF_HEROKU_APP} flask db upgrade
-   heroku run -a {NAME_OF_HEROKU_APP} flask seed all
-   ```
-
-10. Under Settings find "Config Vars" and add any additional/secret .env variables.
-
-11. profit
+## Technologies Used
+   <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
+   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" />
+   <img src="https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=white" />
+   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" />
+   <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white" />
+   <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
+   <img src="https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white" />
+   <img src="https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white" />
+   
+## Code Snippets 
+   * Code for finding and combining all of the users followed sources and displaying them on the all feeds page.
+   * <img src="  />
