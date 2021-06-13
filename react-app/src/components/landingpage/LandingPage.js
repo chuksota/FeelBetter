@@ -6,6 +6,7 @@ import {useDispatch} from 'react-redux'
 import { login } from "../../store/session";
 import {useHistory} from 'react-router-dom'
 import './footer.css'
+
 const useStyles = makeStyles((theme) => ({
   link: {
     background: "#32E875",

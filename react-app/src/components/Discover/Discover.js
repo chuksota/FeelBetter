@@ -4,6 +4,7 @@ import {loadS} from '../../store/sources'
 import ProfileDrawer from '../Profile/profileDrawer/ProfileDrawer'
 import SourceCard from './SourceCard'
 import './discover.css'
+
 const Discover = () => {
 const dispatch = useDispatch()
 const feeds = useSelector(state=> state.session.user.feeds)

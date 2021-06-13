@@ -2,7 +2,7 @@ from app.models import db, Feed, Source
 
 def seed_feeds():
   feed1 = Feed(
-    name= "Test Feed",
+    name= "Sites",
     user_id= 1,
   )
   feed1.sources.append(Source.query.get(1))
@@ -10,14 +10,14 @@ def seed_feeds():
   feed1.sources.append(Source.query.get(3))
 
   feed2 = Feed(
-    name= "Test Feed2",
+    name= "Peer Reviewed",
     user_id= 1,
   )
   feed2.sources.append(Source.query.get(4))
   feed2.sources.append(Source.query.get(5))
   feed2.sources.append(Source.query.get(6))
   feed3 = Feed(
-    name= "Test Feed3",
+    name= "Blogs",
     user_id= 1,
   )
   feed3.sources.append(Source.query.get(7))
