@@ -4,6 +4,8 @@
 ## Live Link: [Feel Better](https://feelbetter-app.herokuapp.com/)
 Feel Better is a [Feedly](feedly.com) inspired application that allows users to stay up to date with the latest news regarding their mental health. 
 
+<img src='https://media.giphy.com/media/MQFmHB7APLQK67NH0f/giphy.gif' />
+
 ## For more information, check out the [Wiki](https://github.com/chuksota/FeelBetter/wiki)
 
 * [Database Schema and Backend Routes](https://github.com/chuksota/FeelBetter/wiki/Database-Schema-and-Backend-Routes)
@@ -21,5 +23,9 @@ Feel Better is a [Feedly](feedly.com) inspired application that allows users to 
    <img src="https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white" />
    
 ## Code Snippets 
-   * Code for finding and combining all of the users followed sources and displaying them on the all feeds page.
-   * <img src="  />
+  * Code for finding and combining all of the users followed sources and displaying them on the all feeds page.
+   <img src="https://github.com/chuksota/FeelBetter/blob/main/images/Capture.PNG"  />
+   
+## Future Features
+   * The ability to let users save their favorite articles in a bookmarks tab.
+   * The ability for the users to read the articles within the app before having to go the the site in which the article is posted. 
