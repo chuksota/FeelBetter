@@ -10,6 +10,8 @@ import { authenticate } from "./store/session";
 import LandingPage from './components/landingpage/LandingPage'
 import Source from './components/Articles/Articles'
 import Discover from './components/Discover/Discover'
+import Bookmarked from './components/Bookmarked/Bookmarked'
+
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
@@ -47,6 +49,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/discover' exact={true}>
         <Discover/>
+        </ProtectedRoute>
+        <ProtectedRoute path='/bookmarks' exact={true}>
+          <Bookmarked />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

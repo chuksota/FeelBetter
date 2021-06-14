@@ -15,7 +15,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import HomeIcon from '@material-ui/icons/Home';
 import {loadUser} from '../../../store/session'
 import CreateSourceFormModal from '../../forms/addSourceForm/index'
-
+import BookmarkIcon from '@material-ui/icons/Bookmark';
 
 const drawerWidth = 350;
 const useStyles = makeStyles((theme) => ({
@@ -83,6 +83,14 @@ const ProfileDrawer = ({ followed, setIsLoading}) => {
       }}
       anchor="left"
     >
+      <NavLink className={classes.margin} to='/bookmarks'>
+        <ListItem button>
+          <ListItemIcon>
+            <BookmarkIcon  className={classes.button} size='small' />
+          </ListItemIcon>
+          <ListItemText  primary="Bookmarks" />
+        </ListItem>
+      </NavLink>
       <NavLink className={classes.margin} to='/discover'>
         <ListItem button>
           <ListItemIcon>

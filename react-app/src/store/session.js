@@ -1,3 +1,5 @@
+
+
 // constants
 const SET_USER = "session/SET_USER";
 const REMOVE_USER = "session/REMOVE_USER";
@@ -14,6 +16,16 @@ const deleteFeed = (feed) => ({
   type: DELETE_FEED,
   feed
 })
+
+export const saveArticle = (article_id) => async (dispatch) => {
+ await fetch("/api/users/save", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({article_id})
+  })
+}
 
 export const add = (name) => async (dispatch) => {
   const response = await fetch("/api/feed", {
