@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from app.models import Source, db, Feed, User
+from app.models import Source, db, Feed, User, Article
 import feedparser
 from flask_login import current_user
 source_routes = Blueprint('source', __name__)
@@ -21,13 +21,24 @@ def getArticles(id):
     if("author" in post):
       temp['author'] = post.author
     else:
-      temp["author"] = " "
-      if("published" in post):
+      temp["author"] = "Unknown"
+    if("published" in post):
         temp['published'] = post.published
-      else:
+    else:
         temp['published'] = " "
     temp['link'] = post.link
-    posts_list.append(temp)
+    article = Article(
+      title = temp['title'],
+      summary = temp['summary'],
+      author=temp['author'],
+      published=temp['published'],
+      website_link = temp['link'],
+      sources_id = id
+    )
+    db.session.add(article)
+    db.session.commit()
+    source.articles.append(article)
+    posts_list.append(article.to_dict())
 
   posts_details['posts'] = posts_list
 

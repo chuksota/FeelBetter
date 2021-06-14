@@ -15,7 +15,6 @@ const Source = () => {
   const articlesArr = Object.values(articles)
   const sources = useSelector(state=>state.sources)
   let name
-
   if(sources[id]){
     name = sources[id].name
   }
