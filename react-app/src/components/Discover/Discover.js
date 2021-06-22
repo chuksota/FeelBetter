@@ -11,6 +11,14 @@ const feeds = useSelector(state=> state.session.user.feeds)
 const sources = useSelector(state=> state.sources)
 const sourcesArr = Object.values(sources)
 
+const newMethod = () => {
+  let newDict = {}
+  sourcesArr.forEach((source)=>{
+    newDict[source.id] = false
+  })
+  return newDict
+}
+
 const newMethod2 = () => {
   const sources = {}
   feeds.forEach((feed)=>{
@@ -38,13 +46,6 @@ const unfollowMethod = () =>{
 
 const feedObj = unfollowMethod()
 
-const newMethod = () => {
-  let newDict = {}
-  sourcesArr.forEach((source)=>{
-    newDict[source.id] = false
-  })
-  return newDict
-}
 
 const [followed, setFollowed] = React.useState(newMethod())
 
