@@ -6,6 +6,7 @@ import {useDispatch} from 'react-redux'
 import {saveArticle} from '../../store/session'
 import Snackbar from '@material-ui/core/Snackbar';
 import CloseIcon from '@material-ui/icons/Close';
+
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 350,
