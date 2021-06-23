@@ -1,6 +1,9 @@
 const LOAD_ARTICLES = "articles/LOAD_ARTICLES"
 const LOAD_TODAYS = "articles/LOAD_TODAYS"
-
+const UNLOAD = 'articles/UNLOAD'
+export const unload = () => ({
+  type: UNLOAD
+})
 const loadArticles = (feed) => ({
   type: LOAD_ARTICLES,
   feed
@@ -30,20 +33,24 @@ export const loadToday = (user_id) => async (dispatch) => {
   dispatch(loadTodays(data))
 }
 
-const initialState= {}
+const initialState= {'all': {}, 'loaded': false}
 export default function articles(state=initialState, action) {
-  let newState = {}
+  let newState = {'all':{}}
   switch (action.type) {
       case LOAD_ARTICLES:
         action.feed.posts.forEach((post)=>{
-          newState[post.title] = post
+          newState.all[post.title] = post
         })
+        newState.loaded = true
         return newState
       case LOAD_TODAYS:
         action.articles.todays.forEach((post)=> {
-          newState[post.title] = post
+          newState.all[post.title] = post
         })
+        newState.loaded = true
         return newState
+      case UNLOAD:
+        return {...initialState}
       default:
           return state;
   }
