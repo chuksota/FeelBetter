@@ -109,6 +109,7 @@ const ProfileDrawer = ({ followed, setIsLoading}) => {
       </NavLink>
       <Divider />
       {feeds.map((feed) => (
+        
         <FeedComp key={feed.id} feeds={feed} />
       ))}
       <Divider/>
