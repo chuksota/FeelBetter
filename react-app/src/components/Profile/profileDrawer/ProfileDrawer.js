@@ -61,6 +61,11 @@ const useStyles = makeStyles((theme) => ({
   },
   button:{
     color: '#fff'
+  },
+  divider:{
+    '&.MuiDivider-root':{
+      borderTop: 'green'
+    }
   }
 }));
 
@@ -107,16 +112,16 @@ const ProfileDrawer = ({ followed, setIsLoading}) => {
           <ListItemText primary="All Feeds" />
         </ListItem>
       </NavLink>
-      <Divider />
+      <Divider className={classes.divider}/>
       {feeds.map((feed) => (
-        
+
         <FeedComp key={feed.id} feeds={feed} />
       ))}
-      <Divider/>
+      <Divider light={true}/>
       <CreateFeedFormModal feedId={feedId} setFeedId={setFeedId} />
-      <Divider />
+      <Divider className={classes.divider}/>
       <CreateSourceFormModal feedId={feedId} setFeedId={setFeedId}/>
-      <Divider/>
+      <Divider className={classes.divider}/>
       <LogoutButton variant='outlined' />
     </Drawer>
   )
