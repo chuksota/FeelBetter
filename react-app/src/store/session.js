@@ -27,6 +27,17 @@ export const saveArticle = (article_id) => async (dispatch) => {
   })
 }
 
+export const unsaveArticle = (article_id) => async (dispatch) => {
+  await fetch("/api/users/unsave", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({article_id})
+  })
+}
+
+
 export const add = (name) => async (dispatch) => {
   const response = await fetch("/api/feed", {
     method: "POST",

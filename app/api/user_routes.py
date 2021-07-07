@@ -26,3 +26,13 @@ def save():
     current_user.articles.append(Article.query.get(article_id))
     db.session.commit()
     return {}
+
+
+@user_routes.route('/unsave', methods=["POST"])
+@login_required
+def unsave():
+    data = request.json
+    article_id = int(data['article_id'])
+    current_user.articles.remove(Article.query.get(article_id))
+    db.session.commit()
+    return {}
