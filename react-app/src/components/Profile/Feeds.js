@@ -1,6 +1,4 @@
 import React, { useEffect } from 'react'
-import ExpandLess from '@material-ui/icons/ExpandLess';
-import ExpandMore from '@material-ui/icons/ExpandMore';
 import Collapse from '@material-ui/core/Collapse';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -42,9 +40,7 @@ const FeedComp = ({feeds}) => {
     dispatch(deleteOne(id))
   }
 
-  const handleClick = () => {
-    setOpen(!open);
-  };
+
   useEffect(()=>{
     dispatch(loadUser())
   }, [dispatch, feedId])
@@ -52,12 +48,11 @@ const FeedComp = ({feeds}) => {
   return(
     <>
     <List>
-        <ListItem key={feeds.id} button onClick={handleClick}>
+        <ListItem key={feeds.id}>
           <ListItemText className={classes.navLink} primary={feeds?.name} />
           <IconButton aria-label="delete" className={classes.margin} onClick={()=> handleDelete(feeds?.id)}>
           <DeleteIcon className={classes.icon}  fontSize="small" />
         </IconButton>
-          {open ? <ExpandLess /> : <ExpandMore />}
         </ListItem>
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>

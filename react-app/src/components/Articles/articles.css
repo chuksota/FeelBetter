@@ -21,6 +21,7 @@ color: #fff;
   margin-bottom: 40px;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
 }
 
 .article-content:hover{
@@ -31,16 +32,22 @@ background-color: #222222;
 margin-top: 0;
 font-size: larger;
 margin-left: 3px;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
 }
 .summary{
   font-size: medium;
   margin-left: 3px;
+  color: darkgrey;
 }
 .author{
   margin-left: 3px;
+  color: darkgrey;
 }
  .published{
   margin-left: 3px;
+  color: darkgrey;
  }
 
  .loading-Icon{

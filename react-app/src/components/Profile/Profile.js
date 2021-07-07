@@ -31,7 +31,6 @@ const Profile = () => {
   }, [dispatch, user.id])
 
   const [isLoading, setIsLoading] = useState(true)
-
   return (
     <>
       <ProfileDrawer setIsLoading={setIsLoading}/>
