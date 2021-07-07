@@ -117,7 +117,7 @@ def getAllArticles():
           temp['published'] = post.published
         else:
           temp['published'] = " "
-      temp['link'] = post.link
+      temp['website_link'] = post.link
       todaysPosts.append(temp)
   todaysDict['todays'] = todaysPosts
   return todaysDict
